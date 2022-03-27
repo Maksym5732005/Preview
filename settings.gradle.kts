@@ -12,5 +12,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Preview"
-include ':app'
+
+include(
+    ":app",
+)
