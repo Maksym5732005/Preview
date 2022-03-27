@@ -20,6 +20,7 @@ object Versions {
     const val exifInterface = "1.3.3"
     const val camerax = "1.0.2"
     const val cameraExtensions = "1.1.0-beta02"
+    const val splashScreen = "1.0.0-beta01"
     //endregion
 
     //region Google

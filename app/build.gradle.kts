@@ -40,6 +40,7 @@ dependencies {
     implementation(Deps.AndroidX.core)
     implementation(Deps.AndroidX.navigationFragment)
     implementation(Deps.AndroidX.navigationUi)
+    implementation(Deps.AndroidX.splashScreen)
 
     implementation(Deps.Google.material)
 

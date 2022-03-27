@@ -49,6 +49,7 @@ object Deps {
         const val room = "androidx.room:room-runtime:${Versions.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
         const val roomRxjava2 = "androidx.room:room-rxjava2:${Versions.room}"
+        const val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     }
 
     object CameraX {
