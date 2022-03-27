@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_graph.xml"
-    app:startDestination="@id/emptyFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/emptyFragment"
-        android:name="com.preview.EmptyFragment"
-        android:label="EmptyFragment" />
+        android:id="@+id/welcomeFragment"
+        android:name="com.preview.feature.welcome.presentation.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
 </navigation>

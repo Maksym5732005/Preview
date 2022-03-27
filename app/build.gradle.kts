@@ -2,6 +2,7 @@ plugins {
     id(GradleConfig.Plugins.androidApplication)
     id(GradleConfig.Plugins.kotlinAndroid)
     id(GradleConfig.Plugins.safeArgs)
+    id(GradleConfig.Plugins.kapt)
 }
 
 android {
@@ -32,6 +33,11 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
 }
 
 dependencies {
@@ -42,6 +48,26 @@ dependencies {
     implementation(Deps.AndroidX.navigationUi)
 
     implementation(Deps.Google.material)
+
+    implementation (Deps.glide)
+    kapt (Deps.glideCompiler)
+
+    kapt (Deps.Google.daggerCompiler)
+    implementation (Deps.Google.dagger)
+    implementation (Deps.Google.daggerAndroid)
+    kapt (Deps.Google.daggerAndroidProcessor)
+
+    implementation (Deps.Google.gson)
+
+    implementation (Deps.retrofit)
+    implementation (Deps.retrofitConverterGson)
+    implementation (Deps.retrofitAdapterRxJava2)
+    implementation (Deps.okHttp)
+    implementation (Deps.okHttpLoggingInterceptor)
+
+    implementation (Deps.rxJava)
+    implementation (Deps.rxKotlin)
+    implementation (Deps.rxAndroid)
 
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.androidXjUnit)
