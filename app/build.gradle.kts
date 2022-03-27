@@ -1,6 +1,7 @@
 plugins {
     id(GradleConfig.Plugins.androidApplication)
     id(GradleConfig.Plugins.kotlinAndroid)
+    id(GradleConfig.Plugins.safeArgs)
 }
 
 android {
@@ -37,6 +38,8 @@ dependencies {
     implementation(Deps.AndroidX.appCompat)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.core)
+    implementation(Deps.AndroidX.navigationFragment)
+    implementation(Deps.AndroidX.navigationUi)
 
     implementation(Deps.Google.material)
 

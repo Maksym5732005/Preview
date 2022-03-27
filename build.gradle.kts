@@ -1,6 +1,12 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath(GradleConfig.Plugins.safeArgsClasspath)
+    }
+}
+
 plugins {
     id(GradleConfig.Plugins.androidApplication) version GradleConfig.Plugins.Versions.androidApplication apply false
     id(GradleConfig.Plugins.androidLibrary) version GradleConfig.Plugins.Versions.androidLibrary apply false
