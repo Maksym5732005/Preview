@@ -5,6 +5,10 @@ plugins {
     id(GradleConfig.Plugins.kapt)
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 android {
     compileSdk = GradleConfig.Base.compileSdk
 
@@ -44,10 +48,14 @@ dependencies {
     implementation(Deps.AndroidX.appCompat)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.core)
+    implementation(Deps.AndroidX.lifeCycleLiveData)
     implementation(Deps.AndroidX.navigationFragment)
     implementation(Deps.AndroidX.navigationUi)
 
     implementation(Deps.Google.material)
+
+    implementation(Deps.epoxy)
+    kapt(Deps.epoxyProcessor)
 
     implementation (Deps.glide)
     kapt (Deps.glideCompiler)

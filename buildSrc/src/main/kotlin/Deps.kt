@@ -30,6 +30,9 @@ object Deps {
 
     const val threeTenApp = "com.jakewharton.threetenabp:threetenabp:${Versions.threeTenAbp}"
 
+    const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
+    const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
+
     object AndroidX {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
         const val annotation = "androidx.annotation:annotation:${Versions.annotation}"

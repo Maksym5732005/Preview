@@ -54,6 +54,7 @@ object Versions {
     const val circularProgressbar = "3.0.3"
     const val facebookLogin = "6.0.0"
     const val nordicsemiScanner = "1.5.1"
+    const val epoxy = "4.6.2"
     //endregion
 
     // Unit Testing
