@@ -8,7 +8,7 @@ import com.preview.base.uicomponent.space
 import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
 import com.preview.feature.welcome.presentation.view.welcomeItemView
 
-private const val SKELETON_VIEWS_COUNT = 5
+private const val SKELETON_VIEWS_COUNT = 2
 private const val SKELETON_SPACE_HEIGHT_DP = 8
 private const val SKELETON_HORIZONTAL_PADDING_DP = 16
 

@@ -7,6 +7,6 @@ import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
 
 internal fun LcenState<List<WelcomeItemModel>>.mapToUiEntity(): LcenState<List<WelcomeItemUiEntity>> {
     return mapContent { content ->
-        content.map { WelcomeItemUiEntity(it.title, it.description) }
+        content.map { WelcomeItemUiEntity(it.title.name, it.description) }
     }
 }

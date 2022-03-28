@@ -24,5 +24,6 @@ class WelcomeFragment : BaseFragment<Binding, WelcomeViewModel>() {
 
     override fun WelcomeViewModel.initViewModel() {
         observe(items) { controller?.setData(it) }
+        observe(event, ::onEvent)
     }
 }
