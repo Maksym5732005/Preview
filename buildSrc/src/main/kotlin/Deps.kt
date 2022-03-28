@@ -33,6 +33,8 @@ object Deps {
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
 
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
     object AndroidX {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
         const val annotation = "androidx.annotation:annotation:${Versions.annotation}"

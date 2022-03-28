@@ -78,6 +78,8 @@ dependencies {
     implementation (Deps.rxKotlin)
     implementation (Deps.rxAndroid)
 
+    implementation(Deps.timber)
+
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.androidXjUnit)
     androidTestImplementation(Deps.Test.espresso)
