@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-abstract class BaseFragment<T : ViewBinding, VM: ViewModel> : Fragment() {
+abstract class BaseFragment<T : ViewBinding, VM: ViewModel> : DaggerFragment() {
 
     abstract val inflater: (LayoutInflater, ViewGroup?, Boolean) -> T
     abstract val viewModel: VM
+    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
     protected open fun T.initViews() = Unit
     protected open fun VM.initViewModel() = Unit

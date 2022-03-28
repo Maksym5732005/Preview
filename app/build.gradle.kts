@@ -63,6 +63,7 @@ dependencies {
     kapt (Deps.Google.daggerCompiler)
     implementation (Deps.Google.dagger)
     implementation (Deps.Google.daggerAndroid)
+    implementation (Deps.Google.daggerAndroidSupport)
     kapt (Deps.Google.daggerAndroidProcessor)
 
     implementation (Deps.Google.gson)

@@ -12,7 +12,9 @@ private const val SKELETON_VIEWS_COUNT = 5
 private const val SKELETON_SPACE_HEIGHT_DP = 8
 private const val SKELETON_HORIZONTAL_PADDING_DP = 16
 
-internal class WelcomeEpoxyController : TypedEpoxyController<LcenState<List<WelcomeItemUiEntity>>>() {
+class WelcomeEpoxyController(
+    private val itemClickListener: (WelcomeItemUiEntity) -> Unit,
+) : TypedEpoxyController<LcenState<List<WelcomeItemUiEntity>>>() {
 
     override fun buildModels(data: LcenState<List<WelcomeItemUiEntity>>?) {
         when (data) {
@@ -32,6 +34,7 @@ internal class WelcomeEpoxyController : TypedEpoxyController<LcenState<List<Welc
             welcomeItemView {
                 id("item_$i")
                 bind(uiEntity)
+                clickListener(this@WelcomeEpoxyController.itemClickListener::invoke)
             }
         }
     }

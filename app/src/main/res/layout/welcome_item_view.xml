@@ -7,6 +7,18 @@
     tools:context="com.preview.feature.welcome.presentation.view.WelcomeItemView"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
+    <FrameLayout
+        android:id="@+id/container_ripple"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_logo"
         android:layout_width="50dp"
