@@ -1,4 +1,4 @@
-package com.preview.base
+package com.preview.base.extensions
 
 import android.annotation.SuppressLint
 import androidx.fragment.app.Fragment

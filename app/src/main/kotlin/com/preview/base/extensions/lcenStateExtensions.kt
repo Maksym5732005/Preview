@@ -1,7 +1,8 @@
 @file:Suppress("EXPERIMENTAL_IS_NOT_ENABLED", "unused")
 
-package com.preview.base
+package com.preview.base.extensions
 
+import com.preview.base.LcenState
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 

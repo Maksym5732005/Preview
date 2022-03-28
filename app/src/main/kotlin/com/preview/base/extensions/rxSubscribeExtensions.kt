@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.preview.base
+package com.preview.base.extensions
 
 import io.reactivex.Completable
 import io.reactivex.Flowable

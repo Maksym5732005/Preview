@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class BaseRxViewModel: ViewModel() {
+abstract class BaseViewModel: ViewModel() {
 
     val event = SingleLiveEvent<Event>()
 

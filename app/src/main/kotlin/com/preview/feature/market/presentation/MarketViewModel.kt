@@ -1,5 +1,5 @@
 package com.preview.feature.market.presentation
 
-import com.preview.base.BaseRxViewModel
+import com.preview.base.BaseViewModel
 
-class MarketViewModel: BaseRxViewModel()
+class MarketViewModel: BaseViewModel()

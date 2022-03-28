@@ -1,7 +1,8 @@
 @file:Suppress("unused")
 
-package com.preview.base
+package com.preview.base.extensions
 
+import com.preview.base.LcenState
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
