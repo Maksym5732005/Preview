@@ -10,8 +10,7 @@ import io.reactivex.Single
 import io.reactivex.subjects.PublishSubject
 
 /**
- * Преобразуют результат Completable в Observable типа, получаемого в результате
- * преобразования LcenState
+ * Convert the result of [Completable] to an [Observable] of the type resulting from the LcenState conversion ([stateCreator]).
  */
 fun <T> Completable.toLcenEventObservable(stateCreator: (LcenState<Unit>) -> T): Observable<T> {
     return andThen(Observable.fromCallable { stateCreator(LcenState.Content(Unit)) })
@@ -20,7 +19,7 @@ fun <T> Completable.toLcenEventObservable(stateCreator: (LcenState<Unit>) -> T):
 }
 
 /**
- * Преобразуют результат Completable в Observable<LcenState<Unit>>
+ * Convert the result of [Completable] to an Observable<LcenState<Unit>>
  */
 fun Completable.toLcenEventObservable(): Observable<LcenState<Unit>> {
     return andThen(Observable.just<LcenState<Unit>>(LcenState.Content(Unit)))
@@ -39,8 +38,7 @@ fun <T> Completable.toLcenEventObservable(
 }
 
 /**
- * Преобразуют результат Observable в Observable типа, получаемого в результате
- * преобразования LcenState
+ * Convert the result of [Observable] to an [Observable] of the type resulting from the LcenState conversion ([stateCreator]).
  */
 fun <C : Any, T> Observable<C>.toLcenEventObservable(stateCreator: (LcenState<C>) -> T): Observable<T> {
     return map { stateCreator(LcenState.Content(it)) }
@@ -49,7 +47,7 @@ fun <C : Any, T> Observable<C>.toLcenEventObservable(stateCreator: (LcenState<C>
 }
 
 /**
- * Преобразуют результат Observable в Observable<LcenState<Unit>>
+ * Convert the result of [Observable] to an Observable<LcenState<*>>
  */
 fun <C : Any> Observable<C>.toLcenEventObservable(): Observable<LcenState<C>> {
     return map<LcenState<C>> { LcenState.Content(it) }
@@ -58,8 +56,7 @@ fun <C : Any> Observable<C>.toLcenEventObservable(): Observable<LcenState<C>> {
 }
 
 /**
- * Преобразуют результат Observable в Observable<LcenState> того же типа
- * Автоматически переподписывается на апстрим в случае ошибки
+ * Convert the result of [Observable] to an Observable<LcenState> of the same type with retry on error.
  */
 fun <T : Any> Observable<T>.toRetryOnErrorLcenObservable(): Observable<LcenState<T>> {
     val errorRelay = PublishSubject.create<LcenState<T>>()
@@ -82,8 +79,7 @@ fun <C, T> Observable<C>.toLcenEventObservable(
 }
 
 /**
- * Преобразуют результат Single в Observable типа, получаемого в результате
- * преобразования LcenState
+ * Convert the result of [Single] to an [Observable] of the type resulting from the LcenState conversion ([stateCreator]).
  */
 fun <C : Any, T> Single<C>.toLcenEventObservable(stateCreator: (LcenState<C>) -> T): Observable<T> {
     return map { stateCreator(LcenState.Content(it)) }
@@ -93,7 +89,7 @@ fun <C : Any, T> Single<C>.toLcenEventObservable(stateCreator: (LcenState<C>) ->
 }
 
 /**
- * Преобразуют результат Single в Observable<LcenState<Unit>>
+ * Convert the result of [Single] to an Observable<LcenState<*>>
  */
 fun <C : Any> Single<C>.toLcenEventObservable(): Observable<LcenState<C>> {
     return map<LcenState<C>> { LcenState.Content(it) }
@@ -114,8 +110,7 @@ fun <C, T> Single<C>.toLcenEventObservable(
 }
 
 /**
- * Преобразуют результат Maybe в Observable типа, получаемого в результате
- * преобразования LcenState
+ * Convert the result of [Maybe] to an [Observable] of the type resulting from the LcenState conversion ([stateCreator]).
  */
 fun <C : Any, T> Maybe<C>.toLcenEventObservable(stateCreator: (LcenState<C>) -> T): Observable<T> {
     return map { stateCreator(LcenState.Content(it)) }
@@ -126,8 +121,7 @@ fun <C : Any, T> Maybe<C>.toLcenEventObservable(stateCreator: (LcenState<C>) -> 
 }
 
 /**
- * Преобразуют результат Maybe в Observable типа, получаемого в результате
- * преобразования LcenState
+ * Convert the result of [Maybe] to an [Observable] of the same type.
  */
 fun <C : Any> Maybe<C>.toLcenEventObservable(): Observable<LcenState<C>> {
     return map<LcenState<C>> { LcenState.Content(it) }

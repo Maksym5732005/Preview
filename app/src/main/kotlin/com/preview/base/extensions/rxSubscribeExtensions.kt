@@ -11,13 +11,13 @@ import io.reactivex.annotations.CheckReturnValue
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Observable<T>.subscribeWithErrorLog(noinline onNext: (T) -> Unit = {}): Disposable {
     return subscribe(onNext, Timber::e)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Observable<T>.subscribeWithErrorLog(
     noinline onNext: (T) -> Unit,
@@ -26,19 +26,19 @@ inline fun <T> Observable<T>.subscribeWithErrorLog(
     return subscribe(onNext, Timber::e, onComplete)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Single<T>.subscribeWithErrorLog(noinline onSuccess: (T) -> Unit = {}): Disposable {
     return subscribe(onSuccess, Timber::e)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Flowable<T>.subscribeWithErrorLog(noinline onNext: (T) -> Unit = {}): Disposable {
     return subscribe(onNext, Timber::e)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Flowable<T>.subscribeWithErrorLog(
     noinline onNext: (T) -> Unit,
@@ -47,13 +47,13 @@ inline fun <T> Flowable<T>.subscribeWithErrorLog(
     return subscribe(onNext, Timber::e, onComplete)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Maybe<T>.subscribeWithErrorLog(noinline onSuccess: (T) -> Unit = {}): Disposable {
     return subscribe(onSuccess, Timber::e)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun <T> Maybe<T>.subscribeWithErrorLog(
     noinline onSuccess: (T) -> Unit,
@@ -62,7 +62,7 @@ inline fun <T> Maybe<T>.subscribeWithErrorLog(
     return subscribe(onSuccess, Timber::e, onComplete)
 }
 
-@Suppress("nothing_to_inline") // инлайн необходим для того чтобы тимбер правильно формировал тэг
+@Suppress("nothing_to_inline") // inline is needed for Timber to form the tag correctly
 @CheckReturnValue
 inline fun Completable.subscribeWithErrorLog(noinline onComplete: () -> Unit = {}): Disposable {
     return subscribe(onComplete, Timber::e)

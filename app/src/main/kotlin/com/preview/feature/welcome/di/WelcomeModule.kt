@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.preview.feature.welcome.di
 
 import androidx.lifecycle.ViewModel

@@ -1,11 +1,5 @@
 package com.preview.base
 
-/**
- * Описывает возможные состояния результата какого-либо действия:
- * состояние загрузки (Loading),
- * состояние успешного обновления данных (Content),
- * состояние ошибки (Error)
- */
 sealed class LcenState<out T : Any> {
     object Loading : LcenState<Nothing>()
     data class Content<C : Any>(val value: C) : LcenState<C>()
@@ -17,8 +11,7 @@ sealed class LcenState<out T : Any> {
 
             other as Error
 
-            // Из-за того что Throwable не оверрайдит equals нужно сравнивать класс вручную
-            // иначе всегда будет возвращаться false
+            // Cause Throwable does not override equals. Otherwise you will always get false.
             if (value.javaClass != other.value.javaClass) return false
 
             return true
@@ -49,8 +42,8 @@ sealed class LcenState<out T : Any> {
 
     override fun toString(): String = javaClass.simpleName
 
-    // Дефолтная реализация equals и hashCode для None и Loading.
-    // Без этого Epoxy не сможет использовать LcenState с аннотацией @ModelProp
+    // Default implementation equals and hashCode for None and Loading.
+    // Used by Epoxy with @ModelProp annotation.
     override fun equals(other: Any?): Boolean = this === other
     override fun hashCode(): Int = javaClass.hashCode()
 }

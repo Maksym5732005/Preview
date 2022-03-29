@@ -13,16 +13,7 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- * Делегат для работы с содержимым [MutableLiveData] как с полем.
- *
- * Без делегата пришлось бы писать такой код:
- * ```
- *  val liveState = MutableLiveData<IntroViewState>(initialState)
- *  var state: IntroViewState
- *      get() = liveState.requireValue()
- *      set(value) = liveState.onNext(value)
- * ```
- * С делегатом для такой же логики достаточно написать:
+ * Delegate to work with [MutableLiveData] like a field.
  * ```
  *  val liveState = MutableLiveData<IntroViewState>(initialState)
  *  var state: IntroViewState by liveState.delegate()
@@ -42,9 +33,9 @@ fun <T> MutableLiveData<T>.onNext(next: T) {
 fun <T : Any> LiveData<T>.requireValue(): T = checkNotNull(value)
 
 /**
- * Подписка на [LiveData].
+ * [LiveData] subscription for Fragment.
  *
- * Пример подписки на изменения состояния:
+ * Example:
  * ```
  *  lateinit var viewModel: MyViewModel
  *
@@ -59,9 +50,9 @@ inline fun <reified T, LD : LiveData<T>> Fragment.observe(liveData: LD, crossinl
 }
 
 /**
- * Подписка на [LiveData].
+ * [LiveData] subscription for [LifecycleOwner].
  *
- * Пример подписки на изменения состояния:
+ * Example:
  * ```
  *  lateinit var viewModel: MyViewModel
  *
@@ -75,18 +66,17 @@ inline fun <reified T, LD : LiveData<T>> LifecycleOwner.observe(liveData: LD, cr
     liveData.observe(this) { block(it) }
 }
 
-/** Последовательный вызов [map] и [distinctUntilChanged], в одной функции. */
+/** Use [LiveData.map] and than [LiveData.distinctUntilChanged]. */
 inline fun <X, Y> LiveData<X>.mapDistinct(crossinline transform: (X) -> Y): LiveData<Y> {
     return map(transform).distinctUntilChanged()
 }
 
 /**
- * Создаёт [LiveData], которая отдаёт новые значения только когда результат выполнения
- * [transform] изменится. Содержимое [LiveData] не трансформируется.
+ * Creates a new [LiveData] object, does not emit a value until the result of [transform] has been changed.
+ * The value is considered changed if `equals()` yields `false`.
  *
- * Этот метод полезно применять если нужно следить за изменением одного из полей и
- * использовать весь объект.
- * Код взят из [distinctUntilChanged], отличается тем, что добавлен [transform].
+ * Useful if you need to observe few fields and use the whole object.
+ * Source like [distinctUntilChanged], but used [transform].
  *
  * @see distinctUntilChanged
  */

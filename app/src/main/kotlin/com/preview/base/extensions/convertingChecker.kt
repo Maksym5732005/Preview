@@ -2,6 +2,16 @@
 
 package com.preview.base.extensions
 
+/**
+ * Returns a value of type [T] or throws RuntimeException if [T] is null.
+ * useful for network requests if the value should not be null.
+ *
+ * Example:
+ * ```
+ * getOrDie(name, "UserInfoEntity/userName")
+ * ```
+ * @param binding a message for the [RuntimeException]
+ */
 fun <T> getOrDie(item: T?, binding: String): T {
     return item ?: throw RuntimeException("'$binding' must not be null")
 }

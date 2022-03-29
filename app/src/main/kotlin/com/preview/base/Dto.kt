@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.preview.base
 
 interface Dto<out T> {

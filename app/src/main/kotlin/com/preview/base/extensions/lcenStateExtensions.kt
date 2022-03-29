@@ -7,7 +7,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
 /**
- * Преобразует изначальный тип данных A состояния Content в тип данных B
+ * Converts the original data type [A] of the [LcenState.Content] state to data type [B]
  */
 inline fun <A : Any, B : Any> LcenState<A>.mapContent(
     mapper: (A) -> B,
@@ -20,7 +20,7 @@ inline fun <A : Any, B : Any> LcenState<A>.mapContent(
 }
 
 /**
- * Преобразует изначальный тип данных A состояния Content в тип данных B
+ * Converts the original data error to other error type.
  */
 inline fun <A : Any> LcenState<A>.mapError(
     mapper: (Throwable) -> Throwable,
