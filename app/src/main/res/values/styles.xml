@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Preview.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/purple_700</item>
+        <item name="android:elevation">4dp</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextAppearance">?textAppearanceCaption</item>
+    </style>
+</resources>
