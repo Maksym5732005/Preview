@@ -3,6 +3,7 @@ package com.preview.data
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.preview.PreviewApi
+import com.preview.feature.market.MarketStateNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
 import javax.inject.Inject
@@ -12,6 +13,10 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
     override fun getWelcomeItems(): Single<List<WelcomeItemNetworkEntity>> {
         val type = object : TypeToken<Collection<WelcomeItemNetworkEntity>>() {}.type
         return Single.just(Gson().fromJson(welcomeItemsJson, type))
+    }
+
+    override fun getMarketState(): Single<MarketStateNetworkEntity> {
+        return Single.just(Gson().fromJson(marketStatus, MarketStateNetworkEntity::class.java))
     }
 }
 
@@ -27,8 +32,8 @@ private const val welcomeItemsJson = """
 
 private const val marketStatus = """
     {
-        "Status":"OPEN",
-        "NextEvent":"Closes in 4 hrs. 32 mins"
+        "status":"OPEN",
+        "nextEvent":"Closes in 4 hrs. 32 mins"
     }
 """
 
