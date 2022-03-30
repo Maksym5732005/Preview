@@ -7,4 +7,8 @@ import dagger.android.support.AndroidSupportInjectionModule
 
 @PerApplication
 @Component(modules = [CoreModule::class, AndroidSupportInjectionModule::class])
-interface AppComponent: AndroidInjector<App>
+interface AppComponent: AndroidInjector<App> {
+
+    @Component.Factory
+    interface Factory: AndroidInjector.Factory<App>
+}

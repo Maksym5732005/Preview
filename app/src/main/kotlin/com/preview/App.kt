@@ -9,7 +9,7 @@ import timber.log.Timber
 class App : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.create()
+        return DaggerAppComponent.factory().create(this)
     }
 
     override fun onCreate() {
