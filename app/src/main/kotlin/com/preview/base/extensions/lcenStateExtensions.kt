@@ -14,6 +14,7 @@ inline fun <A : Any, B : Any> LcenState<A>.mapContent(
 ): LcenState<B> {
     return when (this) {
         is LcenState.Content -> LcenState.Content(mapper(this.value))
+        is LcenState.None -> this
         is LcenState.Loading -> this
         is LcenState.Error -> this
     }
@@ -27,6 +28,7 @@ inline fun <A : Any> LcenState<A>.mapError(
 ): LcenState<A> {
     return when (this) {
         is LcenState.Content -> this
+        is LcenState.None -> this
         is LcenState.Loading -> this
         is LcenState.Error -> LcenState.Error(mapper(this.value))
     }

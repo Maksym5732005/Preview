@@ -35,6 +35,8 @@ object Deps {
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
+    const val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
+
     object AndroidX {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
         const val annotation = "androidx.annotation:annotation:${Versions.annotation}"

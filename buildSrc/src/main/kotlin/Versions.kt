@@ -56,6 +56,7 @@ object Versions {
     const val nordicsemiScanner = "1.5.1"
     const val epoxy = "4.6.2"
     const val timber = "5.0.1"
+    const val jodaTime = "2.10.14"
     //endregion
 
     // Unit Testing

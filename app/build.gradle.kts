@@ -79,6 +79,7 @@ dependencies {
     implementation (Deps.rxAndroid)
 
     implementation(Deps.timber)
+    implementation(Deps.jodaTime)
 
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.androidXjUnit)

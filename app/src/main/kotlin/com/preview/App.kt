@@ -2,7 +2,7 @@ package com.preview
 
 import com.preview.di.DaggerAppComponent
 import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
+import dagger.android.DaggerApplication
 import io.reactivex.plugins.RxJavaPlugins
 import timber.log.Timber
 
