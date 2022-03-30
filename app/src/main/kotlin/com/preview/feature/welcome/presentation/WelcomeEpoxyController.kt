@@ -5,7 +5,7 @@ import com.preview.R
 import com.preview.base.LcenState
 import com.preview.base.uicomponent.skeletonView
 import com.preview.base.uicomponent.space
-import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
+import com.preview.feature.welcome.presentation.model.WelcomeItemUiState
 import com.preview.feature.welcome.presentation.view.welcomeItemView
 
 private const val SKELETON_VIEWS_COUNT = 2
@@ -13,17 +13,17 @@ private const val SKELETON_SPACE_HEIGHT_DP = 8
 private const val SKELETON_HORIZONTAL_PADDING_DP = 16
 
 class WelcomeEpoxyController(
-    private val itemClickListener: (WelcomeItemUiEntity) -> Unit,
-) : TypedEpoxyController<LcenState<List<WelcomeItemUiEntity>>>() {
+    private val itemClickListener: (WelcomeItemUiState) -> Unit,
+) : TypedEpoxyController<LcenState<List<WelcomeItemUiState>>>() {
 
-    override fun buildModels(data: LcenState<List<WelcomeItemUiEntity>>?) {
+    override fun buildModels(data: LcenState<List<WelcomeItemUiState>>?) {
         when (data) {
             is LcenState.Content -> buildContent(data.asContent())
             else -> buildLoading()
         }
     }
 
-    private fun buildContent(content: List<WelcomeItemUiEntity>) {
+    private fun buildContent(content: List<WelcomeItemUiState>) {
         content.forEachIndexed { i, uiEntity ->
             if (i > 0) {
                 space {

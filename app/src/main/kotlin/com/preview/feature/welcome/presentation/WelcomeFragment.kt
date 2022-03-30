@@ -26,4 +26,9 @@ class WelcomeFragment : BaseFragment<Binding, WelcomeViewModel>() {
         observe(items) { controller?.setData(it) }
         observe(event, ::onEvent)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        controller = null
+    }
 }

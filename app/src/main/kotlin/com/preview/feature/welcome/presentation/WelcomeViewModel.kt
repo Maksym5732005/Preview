@@ -13,8 +13,8 @@ import com.preview.base.extensions.subscribeWithErrorLog
 import com.preview.base.extensions.toLcenEventObservable
 import com.preview.feature.welcome.domain.GetWelcomeItemsInteractor
 import com.preview.feature.welcome.domain.model.WelcomeTitles
-import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
-import com.preview.feature.welcome.presentation.model.WelcomeViewState
+import com.preview.feature.welcome.presentation.model.WelcomeItemUiState
+import com.preview.feature.welcome.presentation.model.WelcomeUiState
 import javax.inject.Inject
 
 class WelcomeViewModel @Inject constructor(
@@ -25,13 +25,13 @@ class WelcomeViewModel @Inject constructor(
     private val liveState = MutableLiveData(createInitialState())
     private var state by liveState.delegate()
 
-    val items = liveState.mapDistinct(WelcomeViewState::items)
+    val items = liveState.mapDistinct(WelcomeUiState::items)
 
     init {
         getInitialData()
     }
 
-    fun itemRequested(item: WelcomeItemUiEntity) {
+    fun itemRequested(item: WelcomeItemUiState) {
         event.value = when(item.title) {
             WelcomeTitles.Market.name -> NavigationEvent.NavigationDirection(WelcomeFragmentDirections.pushToMarkets())
             WelcomeTitles.Permission.name -> DebugMessageEvent("Not yet implemented")
@@ -45,13 +45,13 @@ class WelcomeViewModel @Inject constructor(
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog { lcen ->
                 state = state.copy(
-                    items = lcen.mapToUiEntity()
+                    items = lcen.mapToUiState()
                 )
             }.autoDispose()
     }
 
-    private fun createInitialState(): WelcomeViewState =
-        WelcomeViewState(
+    private fun createInitialState(): WelcomeUiState =
+        WelcomeUiState(
             items = LcenState.Loading,
         )
 }

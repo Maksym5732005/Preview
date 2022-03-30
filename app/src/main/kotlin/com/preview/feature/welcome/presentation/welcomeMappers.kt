@@ -3,10 +3,10 @@ package com.preview.feature.welcome.presentation
 import com.preview.base.LcenState
 import com.preview.base.extensions.mapContent
 import com.preview.feature.welcome.domain.model.WelcomeItemModel
-import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
+import com.preview.feature.welcome.presentation.model.WelcomeItemUiState
 
-internal fun LcenState<List<WelcomeItemModel>>.mapToUiEntity(): LcenState<List<WelcomeItemUiEntity>> {
+internal fun LcenState<List<WelcomeItemModel>>.mapToUiState(): LcenState<List<WelcomeItemUiState>> {
     return mapContent { content ->
-        content.map { WelcomeItemUiEntity(it.title.name, it.description) }
+        content.map { WelcomeItemUiState(it.title.name, it.description) }
     }
 }

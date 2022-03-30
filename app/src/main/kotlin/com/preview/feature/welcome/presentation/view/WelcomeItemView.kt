@@ -9,7 +9,7 @@ import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.preview.base.uicomponent.dpToPx
-import com.preview.feature.welcome.presentation.model.WelcomeItemUiEntity
+import com.preview.feature.welcome.presentation.model.WelcomeItemUiState
 import com.preview.databinding.WelcomeItemViewBinding as Binding
 
 private const val PADDING_HORIZONTAL = 8
@@ -32,13 +32,13 @@ internal class WelcomeItemView @JvmOverloads constructor(
     }
 
     @set:CallbackProp
-    var clickListener: ((WelcomeItemUiEntity) -> Unit)? = null
+    var clickListener: ((WelcomeItemUiState) -> Unit)? = null
 
     @set:CallbackProp
     var clicker: (() -> Unit)? = null
 
     @ModelProp
-    fun bind(entity: WelcomeItemUiEntity) = with(binding) {
+    fun bind(entity: WelcomeItemUiState) = with(binding) {
         textTitle.text = entity.title
         entity.subtitle?.let { sub -> textSubtitle.text = sub }
         containerRipple.setOnClickListener {
