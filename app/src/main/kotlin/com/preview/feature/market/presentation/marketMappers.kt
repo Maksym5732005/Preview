@@ -6,7 +6,7 @@ import com.preview.feature.market.domain.model.MarketInfo
 import com.preview.feature.market.presentation.model.MarketInfoItemUiState
 import org.joda.time.format.DateTimeFormat
 
-private const val DATE_TIME_PATTERN = "E d MMM-yyyy HH:mm"
+private const val DATE_TIME_PATTERN = "E d MMM-yyyy HH:mm:ss"
 
 fun LcenState<MarketInfo>.convertToUiState(resourceReader: ResourceReader): LcenState<MarketInfoItemUiState> {
     return mapContent { info ->

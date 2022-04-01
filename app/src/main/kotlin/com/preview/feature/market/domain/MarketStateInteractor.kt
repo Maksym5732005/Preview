@@ -13,7 +13,7 @@ class MarketStateInteractor @Inject constructor(
         return marketRepository.fetchMarketState(skipCache)
     }
 
-    fun get(): Observable<MarketInfo> {
+    fun getLive(): Observable<MarketInfo> {
         return marketRepository.getMarketStateLive()
     }
 }

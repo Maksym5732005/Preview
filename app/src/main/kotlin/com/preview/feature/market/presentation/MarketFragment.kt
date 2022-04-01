@@ -17,6 +17,7 @@ class MarketFragment : BaseFragment<Binding, MarketViewModel>() {
 
     override fun Binding.initViews() {
         controller = MarketEpoxyController(viewModel).also(viewEpoxy::setController)
+        swipe.setOnRefreshListener(viewModel::refreshRequested)
     }
 
     override fun MarketViewModel.initViewModel() {
@@ -24,10 +25,17 @@ class MarketFragment : BaseFragment<Binding, MarketViewModel>() {
         observe(viewState) {
             controller?.setData(it)
         }
+        observe(loadingState, ::renderRefresh)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         controller = null
+    }
+
+    private fun renderRefresh(isLoading: Boolean?) {
+        if (binding.swipe.isRefreshing && isLoading == false) {
+            binding.swipe.isRefreshing = false
+        }
     }
 }

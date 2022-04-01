@@ -8,6 +8,8 @@ import com.preview.base.LcenState
 import com.preview.base.ResourceReader
 import com.preview.base.ThreadScheduler
 import com.preview.base.extensions.delegate
+import com.preview.base.extensions.isLoading
+import com.preview.base.extensions.mapDistinct
 import com.preview.base.extensions.subscribeWithErrorLog
 import com.preview.base.extensions.toLcenEventObservable
 import com.preview.base.scheduleIoToUi
@@ -28,15 +30,23 @@ class MarketViewModel @Inject constructor(
     private var state by _viewState.delegate()
 
     val viewState = _viewState.distinctUntilChanged()
+    val loadingState = _viewState.mapDistinct { s ->
+        s.marketStateItem.lcenState.isLoading()
+    }
 
     init {
         event.value = DebugMessageEvent("Screen is under construction")
+
+        observeMarketState()
         fetchMarketState(false)
-        getMarketState()
     }
 
     //region MarketEpoxyControllerCallbacks
     //endregion
+
+    fun refreshRequested() {
+        fetchMarketState(true)
+    }
 
     private fun fetchMarketState(skipCache: Boolean) {
         marketState.fetch(skipCache)
@@ -48,8 +58,8 @@ class MarketViewModel @Inject constructor(
             .autoDispose()
     }
 
-    private fun getMarketState() {
-        marketState.get()
+    private fun observeMarketState() {
+        marketState.getLive()
             .toLcenEventObservable()
             .map { it.convertToUiState(resourceReader) }
             .scheduleIoToUi(scheduler)

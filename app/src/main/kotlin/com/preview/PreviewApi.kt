@@ -1,6 +1,6 @@
 package com.preview
 
-import com.preview.feature.market.MarketStateNetworkEntity
+import com.preview.feature.market.data.MarketStateNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
 

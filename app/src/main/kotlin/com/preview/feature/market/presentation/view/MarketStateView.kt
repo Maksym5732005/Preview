@@ -1,4 +1,4 @@
-package com.preview.feature.market.presentation
+package com.preview.feature.market.presentation.view
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable

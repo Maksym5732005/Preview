@@ -3,6 +3,7 @@
 package com.preview.feature.market.di
 
 import androidx.lifecycle.ViewModel
+import com.preview.di.PerApplication
 import com.preview.di.viewmodel.ViewModelKey
 import com.preview.feature.market.MarketMemoryStorage
 import com.preview.feature.market.MarketRepositoryImpl
@@ -30,8 +31,10 @@ interface MarketsModule {
 @Module
 interface MarketsBindModule {
     @Binds
+    @PerApplication
     fun bindMarketRepository(repo: MarketRepositoryImpl): MarketRepository
 
     @Binds
+    @PerApplication
     fun bindMarketStorage(repo: MarketMemoryStorage): MarketStorage
 }

@@ -1,4 +1,4 @@
-package com.preview.feature.market
+package com.preview.feature.market.data
 
 import com.preview.base.Dto
 import com.preview.feature.market.domain.model.MarketInfo
@@ -10,7 +10,6 @@ data class MarketStateNetworkEntity(
 ) : Dto<MarketInfo> {
 
     override fun convert(): MarketInfo {
-
         return MarketInfo(
             time = LocalDateTime.now(),
             isMarketOpen = status == Status.OPEN,

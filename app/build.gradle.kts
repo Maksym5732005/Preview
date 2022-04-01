@@ -51,6 +51,7 @@ dependencies {
     implementation(Deps.AndroidX.lifeCycleLiveData)
     implementation(Deps.AndroidX.navigationFragment)
     implementation(Deps.AndroidX.navigationUi)
+    implementation(Deps.AndroidX.swipe)
 
     implementation(Deps.Google.material)
 

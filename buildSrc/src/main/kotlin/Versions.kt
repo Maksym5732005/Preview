@@ -18,6 +18,7 @@ object Versions {
     const val recyclerViewSelection = "1.0.0"
     const val room = "2.4.1"
     const val exifInterface = "1.3.3"
+    const val swipe = "1.1.0"
     const val camerax = "1.0.2"
     const val cameraExtensions = "1.1.0-beta02"
     //endregion

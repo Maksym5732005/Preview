@@ -3,10 +3,12 @@ package com.preview.data
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.preview.PreviewApi
-import com.preview.feature.market.MarketStateNetworkEntity
+import com.preview.feature.market.data.MarketStateNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import kotlin.random.Random
 
 class MockPreviewApi @Inject constructor() : PreviewApi {
 
@@ -17,6 +19,13 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
 
     override fun getMarketState(): Single<MarketStateNetworkEntity> {
         return Single.just(Gson().fromJson(marketStatus, MarketStateNetworkEntity::class.java))
+            .delay(Random.nextLong(5), TimeUnit.SECONDS)
+    }
+
+    override fun getPreciousMetals(): Single<List<PreciousMetalsNetworkEntity>> {
+        val type = object : TypeToken<Collection<PreciousMetalsNetworkEntity>>() {}.type
+        return Single.just<List<PreciousMetalsNetworkEntity>?>(Gson().fromJson(preciousMetals, type))
+            .delay(Random.nextLong(5), TimeUnit.SECONDS)
     }
 }
 

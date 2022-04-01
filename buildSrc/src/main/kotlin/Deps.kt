@@ -56,6 +56,7 @@ object Deps {
         const val room = "androidx.room:room-runtime:${Versions.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
         const val roomRxjava2 = "androidx.room:room-rxjava2:${Versions.room}"
+        const val swipe = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipe}"
     }
 
     object CameraX {
