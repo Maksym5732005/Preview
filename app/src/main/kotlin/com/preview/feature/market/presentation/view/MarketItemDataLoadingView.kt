@@ -12,7 +12,7 @@ import com.preview.base.uicomponent.startSkeletonAnimation
 import com.preview.base.uicomponent.stopSkeletonAnimation
 import com.preview.databinding.MarketItemDataLoadingViewBinding as Binding
 
-private const val VERTICAL_PADDING_DP = 9
+private const val VERTICAL_PADDING_DP = 8
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)
 class MarketItemDataLoadingView @JvmOverloads constructor(

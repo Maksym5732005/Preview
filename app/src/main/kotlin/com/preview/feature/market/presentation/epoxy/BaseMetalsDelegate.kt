@@ -10,7 +10,7 @@ import com.preview.feature.market.presentation.view.marketItemDataLoadingView
 import com.preview.feature.market.presentation.view.marketItemDataTitleView
 import com.preview.feature.market.presentation.view.marketItemDataView
 
-private const val LOADING_VIEWS_COUNT = 5
+private const val LOADING_VIEWS_COUNT = 6
 
 internal interface BaseMetalsDelegate {
     fun MarketEpoxyController.buildBaseMetalModels(marketState: BaseUiState)

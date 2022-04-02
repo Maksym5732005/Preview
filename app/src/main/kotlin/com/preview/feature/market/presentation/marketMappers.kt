@@ -39,6 +39,14 @@ private fun MarketItemMetal.convertToUiState(): MetalUiState {
         bid = String.format(ITEM_VALUE_NUMBER_FORMAT, bid),
         ask = String.format(ITEM_VALUE_NUMBER_FORMAT, ask),
         change = String.format(ITEM_VALUE_NUMBER_FORMAT, change),
-        changeColorRes = R.color.green,
+        changeColorRes = change.resolveColor(),
     )
+}
+
+private fun Float.resolveColor(): Int {
+    return when {
+        this > 0 -> R.color.green
+        this < 0 -> R.color.red
+        else -> R.color.gray
+    }
 }
