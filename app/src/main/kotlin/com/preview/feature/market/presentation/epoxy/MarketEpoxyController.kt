@@ -6,10 +6,12 @@ import com.preview.feature.market.presentation.model.MarketUiState
 internal class MarketEpoxyController(
     val callbacks: MarketEpoxyControllerCallbacks,
 ) : TypedEpoxyController<MarketUiState>(),
-    MarketInfoDelegate by MarketInfoDelegateImpl() {
+    MarketInfoDelegate by MarketInfoDelegateImpl(),
+    PreciousDelegate by PreciousDelegateImpl() {
 
     override fun buildModels(data: MarketUiState) {
         buildMarketModels(data.marketStateItem)
+        buildPreciousMetalModels(data.preciousState)
     }
 }
 

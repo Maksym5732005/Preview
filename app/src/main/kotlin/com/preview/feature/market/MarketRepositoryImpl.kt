@@ -2,8 +2,10 @@ package com.preview.feature.market
 
 import com.preview.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
+import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.market.domain.MarketRepository
 import com.preview.feature.market.domain.model.MarketInfo
+import com.preview.feature.market.domain.model.MarketItemMetal
 import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -27,5 +29,21 @@ class MarketRepositoryImpl @Inject constructor(
 
     override fun getMarketStateLive(): Observable<MarketInfo> {
         return memory.getMarketStateLive()
+    }
+
+    override fun fetchPreciousMetals(skipCache: Boolean): Completable {
+        return Completable.defer {
+            if (skipCache || memory.isPreciousEmpty()) {
+                api.getPreciousMetals().map { list ->
+                    list.map(PreciousMetalsNetworkEntity::convert)
+                }.flatMapCompletableAction(memory::setPrecious)
+            } else {
+                Completable.complete()
+            }
+        }
+    }
+
+    override fun getPreciousMetalsLive(): Observable<List<MarketItemMetal>> {
+        return memory.getPreciousLive()
     }
 }

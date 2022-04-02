@@ -4,7 +4,7 @@ import com.preview.base.LcenState
 
 data class MarketUiState(
     val marketStateItem: MarketInfoUiState,
-    val preciousMetalsItems: List<String>,
+    val preciousState: PreciousUiState,
     val baseMetalsItems: List<String>,
     val indicesItems: List<String>,
 )
@@ -12,4 +12,9 @@ data class MarketUiState(
 data class MarketInfoUiState(
     val lcenState: LcenState<Unit>,
     val marketItem: LcenState<MarketInfoItemUiState>,
+)
+
+data class PreciousUiState(
+    val lcenState: LcenState<Unit>,
+    val preciousItems: LcenState<List<MarketItemDataUiState>>,
 )

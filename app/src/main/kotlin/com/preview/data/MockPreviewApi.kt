@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.preview.PreviewApi
 import com.preview.feature.market.data.MarketStateNetworkEntity
+import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
@@ -48,65 +49,65 @@ private const val marketStatus = """
 
 private const val preciousMetals = """
     [{
-        "ChangePercentage":-0.45,
-        "High":1931.2,
-        "Low":1889.1,
-        "Symbol":"AU",
-        "Currency":"USD",
-        "Ask":1914.9,
-        "Mid":1914.4,
-        "Change":-8.7,
-        "Unit":"OUNCE",
-        "Bid":1913.9,
-        "Timestamp":"2022-03-29 12:28:39"
+        "changePercentage":-0.45,
+        "high":1931.2,
+        "low":1889.1,
+        "symbol":"AU",
+        "currency":"USD",
+        "ask":1914.9,
+        "mid":1914.4,
+        "change":-8.7,
+        "unit":"OUNCE",
+        "bid":1913.9,
+        "timestamp":"2022-03-29 12:28:39"
     },{
-        "ChangePercentage":-1.3,
-        "High":25.1,
-        "Low":23.93,
-        "Symbol":"AG",
-        "Currency":"USD",
-        "Ask":24.68,
-        "Mid":24.63,
-        "Change":-0.32,
-        "Unit":"OUNCE",
-        "Bid":24.58,
-        "Timestamp":"2022-03-29 12:28:40"
+        "changePercentage":-1.3,
+        "high":25.1,
+        "low":23.93,
+        "symbol":"AG",
+        "currency":"USD",
+        "ask":24.68,
+        "mid":24.63,
+        "change":-0.32,
+        "unit":"OUNCE",
+        "bid":24.58,
+        "timestamp":"2022-03-29 12:28:40"
     },{
-        "ChangePercentage":-0.91,
-        "High":997,
-        "Low":952,
-        "Symbol":"PT",
-        "Currency":"USD",
-        "Ask":985,
-        "Mid":980,
-        "Change":-9,
-        "Unit":"OUNCE",
-        "Bid":975,
-        "Timestamp":"2022-03-29 12:28:43"
+        "changePercentage":-0.91,
+        "high":997,
+        "low":952,
+        "symbol":"PT",
+        "currency":"USD",
+        "ask":985,
+        "mid":980,
+        "change":-9,
+        "unit":"OUNCE",
+        "bid":975,
+        "timestamp":"2022-03-29 12:28:43"
     },{
-        "ChangePercentage":-5.83,
-        "High":2386,
-        "Low":1960,
-        "Symbol":"PD",
-        "Currency":"USD",
-        "Ask":2186,
-        "Mid":2111,
-        "Change":-126,
-        "Unit":"OUNCE",
-        "Bid":2036,
-        "Timestamp":"2022-03-29 12:28:42"
+        "changePercentage":-5.83,
+        "high":2386,
+        "low":1960,
+        "symbol":"PD",
+        "currency":"USD",
+        "ask":2186,
+        "mid":2111,
+        "change":-126,
+        "unit":"OUNCE",
+        "bid":2036,
+        "timestamp":"2022-03-29 12:28:42"
     },{
-        "ChangePercentage":0,
-        "High":19950,
-        "Low":17950,
-        "Symbol":"RH",
-        "Currency":"USD",
-        "Ask":19950,
-        "Mid":18950,
-        "Change":0,
-        "Unit":"OUNCE",
-        "Bid":17950,
-        "Timestamp":"2022-03-29 08:20:20"
+        "changePercentage":0,
+        "high":19950,
+        "low":17950,
+        "symbol":"RH",
+        "currency":"USD",
+        "ask":19950,
+        "mid":18950,
+        "change":0,
+        "unit":"OUNCE",
+        "bid":17950,
+        "timestamp":"2022-03-29 08:20:20"
     }]
 """
 

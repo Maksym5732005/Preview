@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1.7"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textAppearance="?textAppearanceBody2"
+            android:textSize="14sp"
+            tools:text="[9:15]" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?textAppearanceBody2"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="[USD Index]" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_bid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:textAppearance="?textAppearanceBody2"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        tools:text="[12345.67]" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_ask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:textAppearance="?textAppearanceBody2"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        tools:text="[12345.67]" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_change"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="0.8"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textAppearance="?textAppearanceBody2"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="16sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        tools:text="[+661.39]"
+        tools:textColor="@color/green" />
+
+</merge>
