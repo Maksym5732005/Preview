@@ -13,9 +13,11 @@ import com.preview.base.extensions.mapDistinct
 import com.preview.base.extensions.subscribeWithErrorLog
 import com.preview.base.extensions.toLcenEventObservable
 import com.preview.base.scheduleIoToUi
+import com.preview.feature.market.domain.BaseMetalsInteractor
 import com.preview.feature.market.domain.MarketStateInteractor
 import com.preview.feature.market.domain.PreciousMetalsInteractor
 import com.preview.feature.market.presentation.epoxy.MarketEpoxyControllerCallbacks
+import com.preview.feature.market.presentation.model.BaseUiState
 import com.preview.feature.market.presentation.model.MarketInfoUiState
 import com.preview.feature.market.presentation.model.MarketUiState
 import com.preview.feature.market.presentation.model.PreciousUiState
@@ -24,6 +26,7 @@ import javax.inject.Inject
 class MarketViewModel @Inject constructor(
     private val marketState: MarketStateInteractor,
     private val preciousMetals: PreciousMetalsInteractor,
+    private val baseMetals: BaseMetalsInteractor,
     private val scheduler: ThreadScheduler,
     private val resourceReader: ResourceReader,
 ) : BaseViewModel(), MarketEpoxyControllerCallbacks {
@@ -35,6 +38,7 @@ class MarketViewModel @Inject constructor(
     val loadingState = _viewState.mapDistinct { s ->
         s.marketStateItem.lcenState.isLoading()
                 || s.preciousState.lcenState.isLoading()
+                || s.baseMetalsState.lcenState.isLoading()
     }
 
     init {
@@ -45,6 +49,9 @@ class MarketViewModel @Inject constructor(
 
         observePreciousMetals()
         fetchPreciousMetals(false)
+
+        observeBaseMetals()
+        fetchBaseMetals(false)
     }
 
     //region MarketEpoxyControllerCallbacks
@@ -56,6 +63,7 @@ class MarketViewModel @Inject constructor(
     fun refreshRequested() {
         fetchMarketState(true)
         fetchPreciousMetals(true)
+        fetchBaseMetals(true)
     }
 
     private fun fetchMarketState(skipCache: Boolean) {
@@ -98,6 +106,26 @@ class MarketViewModel @Inject constructor(
             }.autoDispose()
     }
 
+    private fun fetchBaseMetals(skipCache: Boolean) {
+        baseMetals.fetch(skipCache)
+            .toLcenEventObservable()
+            .scheduleIoToUi(scheduler)
+            .subscribeWithErrorLog {
+                state = state.copy(baseMetalsState = state.baseMetalsState.copy(lcenState = it))
+            }
+            .autoDispose()
+    }
+
+    private fun observeBaseMetals() {
+        baseMetals.getLive()
+            .map { it.convertToUiState() }
+            .toLcenEventObservable()
+            .scheduleIoToUi(scheduler)
+            .subscribeWithErrorLog {
+                state = state.copy(baseMetalsState = state.baseMetalsState.copy(preciousItems = it))
+            }.autoDispose()
+    }
+
     private fun createInitialState() = MarketUiState(
         marketStateItem = MarketInfoUiState(
             lcenState = LcenState.Loading,
@@ -107,7 +135,10 @@ class MarketViewModel @Inject constructor(
             lcenState = LcenState.Loading,
             preciousItems = LcenState.Loading,
         ),
-        baseMetalsItems = emptyList(),
+        baseMetalsState = BaseUiState(
+            lcenState = LcenState.Loading,
+            preciousItems = LcenState.Loading,
+        ),
         indicesItems = emptyList(),
     )
 }

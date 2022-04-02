@@ -2,6 +2,7 @@ package com.preview.feature.market
 
 import com.preview.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
+import com.preview.feature.market.data.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.market.domain.MarketRepository
 import com.preview.feature.market.domain.model.MarketInfo
@@ -45,5 +46,21 @@ class MarketRepositoryImpl @Inject constructor(
 
     override fun getPreciousMetalsLive(): Observable<List<MarketItemMetal>> {
         return memory.getPreciousLive()
+    }
+
+    override fun fetchBaseMetals(skipCache: Boolean): Completable {
+        return Completable.defer {
+            if (skipCache || memory.isBaseEmpty()) {
+                api.getBaseMetals().map { list ->
+                    list.map(BaseMetalsNetworkEntity::convert)
+                }.flatMapCompletableAction(memory::setBase)
+            } else {
+                Completable.complete()
+            }
+        }
+    }
+
+    override fun getBaseMetalsLive(): Observable<List<MarketItemMetal>> {
+        return memory.getBaseLive()
     }
 }

@@ -7,11 +7,13 @@ internal class MarketEpoxyController(
     val callbacks: MarketEpoxyControllerCallbacks,
 ) : TypedEpoxyController<MarketUiState>(),
     MarketInfoDelegate by MarketInfoDelegateImpl(),
-    PreciousDelegate by PreciousDelegateImpl() {
+    PreciousDelegate by PreciousDelegateImpl(),
+    BaseMetalsDelegate by BaseMetalsDelegateImpl() {
 
     override fun buildModels(data: MarketUiState) {
         buildMarketModels(data.marketStateItem)
         buildPreciousMetalModels(data.preciousState)
+        buildBaseMetalModels(data.baseMetalsState)
     }
 }
 

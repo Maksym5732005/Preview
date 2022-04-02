@@ -7,7 +7,7 @@ import org.joda.time.format.DateTimeFormat
 
 private const val TIME_STAMP_FORMAT = "yyyy-MM-dd HH:mm:ss"
 
-data class PreciousMetalsNetworkEntity(
+data class BaseMetalsNetworkEntity(
     val changePercentage: Float,
     val high: Float,
     val low: Float,
@@ -34,11 +34,12 @@ data class PreciousMetalsNetworkEntity(
 
 private fun String.convertSymbolToName(): String {
     return when (this) {
-        "AU" -> "Gold"
-        "AG" -> "Silver"
-        "PT" -> "Platinum"
-        "PD" -> "Palladium"
-        "RH" -> "Rhodium"
+        "CU" -> "Cooper"
+        "NI" -> "Nickel"
+        "AL" -> "Aluminium"
+        "ZN" -> "Zinc"
+        "PB" -> "Lead"
+        "UR" -> "Uranium"
         else -> throw IllegalStateException("Can't convert `$this` to name")
     }
 }

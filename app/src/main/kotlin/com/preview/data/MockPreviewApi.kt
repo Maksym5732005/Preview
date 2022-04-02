@@ -3,6 +3,7 @@ package com.preview.data
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.preview.PreviewApi
+import com.preview.feature.market.data.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.MarketStateNetworkEntity
 import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
@@ -27,6 +28,12 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
     override fun getPreciousMetals(): Single<List<PreciousMetalsNetworkEntity>> {
         val type = object : TypeToken<Collection<PreciousMetalsNetworkEntity>>() {}.type
         return Single.just<List<PreciousMetalsNetworkEntity>?>(Gson().fromJson(preciousMetals, type))
+            .delay(Random.nextLong(1..5L), TimeUnit.SECONDS)
+    }
+
+    override fun getBaseMetals(): Single<List<BaseMetalsNetworkEntity>> {
+        val type = object : TypeToken<Collection<BaseMetalsNetworkEntity>>() {}.type
+        return Single.just<List<BaseMetalsNetworkEntity>?>(Gson().fromJson(baseMetals, type))
             .delay(Random.nextLong(1..5L), TimeUnit.SECONDS)
     }
 }
@@ -114,71 +121,71 @@ private const val preciousMetals = """
 
 private const val baseMetals = """
     [{
-        "ChangePercentage":0.2,
-        "High":4.6964,
-        "Low":4.6468,
-        "Symbol":"CU",
-        "Ask":4.6868,
+        "changePercentage":0.2,
+        "high":4.6964,
+        "low":4.6468,
+        "symbol":"CU",
+        "ask":4.6868,
         "Mid":4.6864,
-        "Change":0.0094,
-        "Unit":"POUND",
-        "Bid":4.6859,
-        "Timestamp":"2022-03-29 12:28:42"
+        "change":0.0094,
+        "unit":"POUND",
+        "bid":4.6859,
+        "timestamp":"2022-03-29 12:28:42"
     },{
-        "ChangePercentage":-0.19,
-        "High":15.0392,
-        "Low":14.1347,
-        "Symbol":"NI",
-        "Ask":14.5059,
+        "changePercentage":-0.19,
+        "high":15.0392,
+        "low":14.1347,
+        "symbol":"NI",
+        "ask":14.5059,
         "Mid":14.4537,
-        "Change":-0.028,
-        "Unit":"POUND",
-        "Bid":14.4016,
-        "Timestamp":"2022-03-29 12:27:43"
+        "change":-0.028,
+        "unit":"POUND",
+        "bid":14.4016,
+        "timestamp":"2022-03-29 12:27:43"
     },{
-        "ChangePercentage":-4.3,
-        "High":1.7538,
-        "Low":1.6379,
-        "Symbol":"AL",
-        "Ask":1.657,
+        "changePercentage":-4.3,
+        "high":1.7538,
+        "low":1.6379,
+        "symbol":"AL",
+        "ask":1.657,
         "Mid":1.6566,
-        "Change":-0.0744,
-        "Unit":"POUND",
-        "Bid":1.6563,
-        "Timestamp":"2022-03-29 12:26:43"
+        "change":-0.0744,
+        "unit":"POUND",
+        "bid":1.6563,
+        "timestamp":"2022-03-29 12:26:43"
     },{
-        "ChangePercentage":-0.59,
-        "High":1.8629,
-        "Low":1.8308,
-        "Symbol":"ZN",
-        "Ask":1.836,
+        "changePercentage":-0.59,
+        "high":1.8629,
+        "low":1.8308,
+        "symbol":"ZN",
+        "ask":1.836,
         "Mid":1.8352,
-        "Change":-0.0109,
-        "Unit":"POUND",
-        "Bid":1.8344,
-        "Timestamp":"2022-03-29 12:27:43"
+        "change":-0.0109,
+        "unit":"POUND",
+        "bid":1.8344,
+        "timestamp":"2022-03-29 12:27:43"
     },{
-        "ChangePercentage":0.96,
-        "High":1.0869,
-        "Low":1.0713,
-        "Symbol":"PB",
-        "Ask":1.0851,
+        "changePercentage":0.96,
+        "high":1.0869,
+        "low":1.0713,
+        "symbol":"PB",
+        "ask":1.0851,
         "Mid":1.0846,
-        "Change":0.0104,
-        "Unit":"POUND",
-        "Bid":1.0842,
-        "Timestamp":"2022-03-29 12:22:41"
+        "change":0.0104,
+        "unit":"POUND",
+        "bid":1.0842,
+        "timestamp":"2022-03-29 12:22:41"
     },{
-        "ChangePercentage":4.55,
-        "High":57.5,
-        "Low":57.5,
-        "Symbol":"UR",
-        "Ask":57.5,
+        "changePercentage":4.55,
+        "high":57.5,
+        "low":57.5,
+        "symbol":"UR",
+        "ask":57.5,
         "Mid":57.5,
-        "Change":2.5,
-        "Unit":"POUND",
-        "Bid":57.5,
-        "Timestamp":"2022-03-21 00:00:00"
+        "change":2.5,
+        "unit":"POUND",
+        "bid":57.5,
+        "timestamp":"2022-03-21 00:00:00"
     }]
 """
 

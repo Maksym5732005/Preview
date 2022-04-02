@@ -22,9 +22,7 @@ class MarketFragment : BaseFragment<Binding, MarketViewModel>() {
 
     override fun MarketViewModel.initViewModel() {
         observe(event, ::onEvent)
-        observe(viewState) {
-            controller?.setData(it)
-        }
+        observe(viewState) { controller?.setData(it) }
         observe(loadingState, ::renderRefresh)
     }
 

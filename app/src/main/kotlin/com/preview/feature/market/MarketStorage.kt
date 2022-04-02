@@ -14,6 +14,9 @@ interface MarketStorage {
     fun isPreciousEmpty(): Boolean
     fun getPreciousLive(): Observable<List<MarketItemMetal>>
     fun setPrecious(preciousMetals: List<MarketItemMetal>)
+    fun isBaseEmpty(): Boolean
+    fun getBaseLive(): Observable<List<MarketItemMetal>>
+    fun setBase(preciousMetals: List<MarketItemMetal>)
 }
 
 private const val MARKET_INFO_KEY = "market_info_key"
@@ -24,6 +27,7 @@ class MarketMemoryStorage @Inject constructor(
 
     private val marketState by memory.reactiveCache<MarketInfo>()
     private val precious by memory.reactiveCache<MarketItemMetal>()
+    private val base by memory.reactiveCache<MarketItemMetal>()
 
     override fun isMarketStateEmpty(): Boolean {
         return marketState.isEmpty()
@@ -47,5 +51,17 @@ class MarketMemoryStorage @Inject constructor(
 
     override fun setPrecious(preciousMetals: List<MarketItemMetal>) {
         precious.putAll(preciousMetals.associateBy { it.metalName })
+    }
+
+    override fun isBaseEmpty(): Boolean {
+        return base.isEmpty()
+    }
+
+    override fun getBaseLive(): Observable<List<MarketItemMetal>> {
+        return base.getAllLive()
+    }
+
+    override fun setBase(preciousMetals: List<MarketItemMetal>) {
+        base.putAll(preciousMetals.associateBy { it.metalName })
     }
 }
