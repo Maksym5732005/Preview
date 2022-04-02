@@ -22,19 +22,19 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
 
     override fun getMarketState(): Single<MarketStateNetworkEntity> {
         return Single.just(Gson().fromJson(marketStatus, MarketStateNetworkEntity::class.java))
-            .delay(Random.nextLong(3), TimeUnit.SECONDS)
+            .delay(3, TimeUnit.SECONDS)
     }
 
     override fun getPreciousMetals(): Single<List<PreciousMetalsNetworkEntity>> {
         val type = object : TypeToken<Collection<PreciousMetalsNetworkEntity>>() {}.type
         return Single.just<List<PreciousMetalsNetworkEntity>?>(Gson().fromJson(preciousMetals, type))
-            .delay(Random.nextLong(1..5L), TimeUnit.SECONDS)
+            .delay(6, TimeUnit.SECONDS)
     }
 
     override fun getBaseMetals(): Single<List<BaseMetalsNetworkEntity>> {
         val type = object : TypeToken<Collection<BaseMetalsNetworkEntity>>() {}.type
         return Single.just<List<BaseMetalsNetworkEntity>?>(Gson().fromJson(baseMetals, type))
-            .delay(Random.nextLong(1..5L), TimeUnit.SECONDS)
+            .delay(4, TimeUnit.SECONDS)
     }
 }
 
