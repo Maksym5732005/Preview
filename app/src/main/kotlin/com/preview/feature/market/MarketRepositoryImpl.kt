@@ -3,9 +3,11 @@ package com.preview.feature.market
 import com.preview.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
 import com.preview.feature.market.data.BaseMetalsNetworkEntity
+import com.preview.feature.market.data.IndicesNetworkEntity
 import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.market.domain.MarketRepository
 import com.preview.feature.market.domain.model.MarketInfo
+import com.preview.feature.market.domain.model.MarketItemIndex
 import com.preview.feature.market.domain.model.MarketItemMetal
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -62,5 +64,21 @@ class MarketRepositoryImpl @Inject constructor(
 
     override fun getBaseMetalsLive(): Observable<List<MarketItemMetal>> {
         return memory.getBaseLive()
+    }
+
+    override fun fetchIndices(skipCache: Boolean): Completable {
+        return Completable.defer {
+            if (skipCache || memory.isIndicesEmpty()) {
+                api.getIndices().map { list ->
+                    list.map(IndicesNetworkEntity::convert)
+                }.flatMapCompletableAction(memory::setIndices)
+            } else {
+                Completable.complete()
+            }
+        }
+    }
+
+    override fun getIndicesLive(): Observable<List<MarketItemIndex>> {
+        return memory.getIndicesLive()
     }
 }

@@ -3,6 +3,7 @@ package com.preview.feature.market
 import com.preview.base.AppMemory
 import com.preview.base.reactiveCache
 import com.preview.feature.market.domain.model.MarketInfo
+import com.preview.feature.market.domain.model.MarketItemIndex
 import com.preview.feature.market.domain.model.MarketItemMetal
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -17,6 +18,9 @@ interface MarketStorage {
     fun isBaseEmpty(): Boolean
     fun getBaseLive(): Observable<List<MarketItemMetal>>
     fun setBase(preciousMetals: List<MarketItemMetal>)
+    fun isIndicesEmpty(): Boolean
+    fun getIndicesLive(): Observable<List<MarketItemIndex>>
+    fun setIndices(preciousMetals: List<MarketItemIndex>)
 }
 
 private const val MARKET_INFO_KEY = "market_info_key"
@@ -28,6 +32,7 @@ class MarketMemoryStorage @Inject constructor(
     private val marketState by memory.reactiveCache<MarketInfo>()
     private val precious by memory.reactiveCache<MarketItemMetal>()
     private val base by memory.reactiveCache<MarketItemMetal>()
+    private val indices by memory.reactiveCache<MarketItemIndex>()
 
     override fun isMarketStateEmpty(): Boolean {
         return marketState.isEmpty()
@@ -63,5 +68,17 @@ class MarketMemoryStorage @Inject constructor(
 
     override fun setBase(preciousMetals: List<MarketItemMetal>) {
         base.putAll(preciousMetals.associateBy { it.metalName })
+    }
+
+    override fun isIndicesEmpty(): Boolean {
+        return indices.isEmpty()
+    }
+
+    override fun getIndicesLive(): Observable<List<MarketItemIndex>> {
+        return indices.getAllLive()
+    }
+
+    override fun setIndices(preciousMetals: List<MarketItemIndex>) {
+        indices.putAll(preciousMetals.associateBy { it.indexName })
     }
 }

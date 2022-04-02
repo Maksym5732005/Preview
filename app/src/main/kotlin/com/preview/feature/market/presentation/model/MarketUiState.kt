@@ -6,7 +6,7 @@ data class MarketUiState(
     val marketStateItem: MarketInfoUiState,
     val preciousState: PreciousUiState,
     val baseMetalsState: BaseUiState,
-    val indicesItems: List<String>,
+    val indicesState: IndicesUiState,
 )
 
 data class MarketInfoUiState(
@@ -22,4 +22,9 @@ data class PreciousUiState(
 data class BaseUiState(
     val lcenState: LcenState<Unit>,
     val preciousItems: LcenState<List<MetalUiState>>,
+)
+
+data class IndicesUiState(
+    val lcenState: LcenState<Unit>,
+    val indicesItems: LcenState<List<IndexItemUiState>>,
 )

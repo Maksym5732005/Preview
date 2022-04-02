@@ -11,8 +11,11 @@
     <string name="markets_item_market_state_close">The Spot Market is Closed</string>
     <string name="markets_item_precious_title">- - - Precious metals - - -</string>
     <string name="markets_item_base_title">- - - Base metals - - -</string>
+    <string name="markets_item_indices_title">- - - Indices metals - - -</string>
     <string name="markets_item_header_updated">Updated at</string>
     <string name="markets_item_header_bid">Bid</string>
     <string name="markets_item_header_ask">Ask</string>
-    <string name="markets_item_header_change">% Change</string>
+    <string name="markets_item_header_change">Change</string>
+    <string name="markets_item_header_change_percent">% Change</string>
+    <string name="markets_item_header_price">Price</string>
 </resources>

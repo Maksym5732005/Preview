@@ -4,14 +4,13 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.preview.PreviewApi
 import com.preview.feature.market.data.BaseMetalsNetworkEntity
+import com.preview.feature.market.data.IndicesNetworkEntity
 import com.preview.feature.market.data.MarketStateNetworkEntity
 import com.preview.feature.market.data.PreciousMetalsNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
-import kotlin.random.Random
-import kotlin.random.nextLong
 
 class MockPreviewApi @Inject constructor() : PreviewApi {
 
@@ -35,6 +34,12 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
         val type = object : TypeToken<Collection<BaseMetalsNetworkEntity>>() {}.type
         return Single.just<List<BaseMetalsNetworkEntity>?>(Gson().fromJson(baseMetals, type))
             .delay(4, TimeUnit.SECONDS)
+    }
+
+    override fun getIndices(): Single<List<IndicesNetworkEntity>> {
+        val type = object : TypeToken<Collection<IndicesNetworkEntity>>() {}.type
+        return Single.just<List<IndicesNetworkEntity>?>(Gson().fromJson(indices, type))
+            .delay(2, TimeUnit.SECONDS)
     }
 }
 
@@ -191,76 +196,76 @@ private const val baseMetals = """
 
 private const val indices = """
     [{
-        "ChangePercentage":-3.12,
-        "Price":102.65,
-        "Symbol":"CL",
-        "Change":-3.31,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-3.12,
+        "price":102.65,
+        "symbol":"CL",
+        "change":-3.31,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":0.54,
-        "Price":35144.26,
-        "Symbol":"DJI",
-        "Change":188.37,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":0.54,
+        "price":35144.26,
+        "symbol":"DJI",
+        "change":188.37,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":1.19,
-        "Price":14526.01,
-        "Symbol":"IXIC",
-        "Change":171.11,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":1.19,
+        "price":14526.01,
+        "symbol":"IXIC",
+        "change":171.11,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":0.65,
-        "Price":4605.13,
-        "Symbol":"SPX",
-        "Change":29.61,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":0.65,
+        "price":4605.13,
+        "symbol":"SPX",
+        "change":29.61,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":-0.7,
-        "Price":98.39,
-        "Symbol":"USDX",
-        "Change":-0.69,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-0.7,
+        "price":98.39,
+        "symbol":"USDX",
+        "change":-0.69,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":0.68,
-        "Price":16913.17,
-        "Symbol":"NYA",
-        "Change":114.45,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":0.68,
+        "price":16913.17,
+        "symbol":"NYA",
+        "change":114.45,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":-0,
-        "Price":21977.33,
-        "Symbol":"GSPTSE",
-        "Change":-0.5,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-0,
+        "price":21977.33,
+        "symbol":"GSPTSE",
+        "change":-0.5,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":1.1,
-        "Price":28252.42,
-        "Symbol":"N225",
-        "Change":308.53,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":1.1,
+        "price":28252.42,
+        "symbol":"N225",
+        "change":308.53,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":-0.47,
-        "Price":155.43,
-        "Symbol":"XAU",
-        "Change":-0.73,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-0.47,
+        "price":155.43,
+        "symbol":"XAU",
+        "change":-0.73,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":-0.5,
-        "Price":305.24,
-        "Symbol":"HUI",
-        "Change":-1.54,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-0.5,
+        "price":305.24,
+        "symbol":"HUI",
+        "change":-1.54,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":-0.73,
-        "Price":342.11,
-        "Symbol":"SPTTGD",
-        "Change":-2.5,
-        "Timestamp":"2022-03-29 12:28:35"
+        "changePercentage":-0.73,
+        "price":342.11,
+        "symbol":"SPTTGD",
+        "change":-2.5,
+        "timestamp":"2022-03-29 12:28:35"
     },{
-        "ChangePercentage":0.89,
-        "Price":308.76,
-        "Symbol":"GFMS",
-        "Change":2.72,
-        "Timestamp":"2012-03-16 00:00:00"
+        "changePercentage":0.89,
+        "price":308.76,
+        "symbol":"GFMS",
+        "change":2.72,
+        "timestamp":"2012-03-16 00:00:00"
     }]
 """
