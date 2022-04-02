@@ -6,6 +6,7 @@ import com.preview.base.extensions.isLoading
 import com.preview.base.uicomponent.dividerView
 import com.preview.feature.market.presentation.model.BaseUiState
 import com.preview.feature.market.presentation.model.MetalUiState
+import com.preview.feature.market.presentation.view.TitleModel
 import com.preview.feature.market.presentation.view.marketItemDataLoadingView
 import com.preview.feature.market.presentation.view.marketItemDataTitleView
 import com.preview.feature.market.presentation.view.marketItemDataView
@@ -20,7 +21,14 @@ internal class BaseMetalsDelegateImpl : BaseMetalsDelegate {
     override fun MarketEpoxyController.buildBaseMetalModels(marketState: BaseUiState) {
         marketItemDataTitleView {
             id("base_title")
-            title(R.string.markets_item_base_title)
+            title(
+                TitleModel(
+                    title = R.string.markets_item_base_title,
+                    subtitleSecond = R.string.markets_item_header_bid,
+                    subtitleThird = R.string.markets_item_header_ask,
+                    subtitleFifth = R.string.markets_item_header_change_percent,
+                )
+            )
         }
         if (marketState.lcenState.isLoading()) {
             buildLoading()
