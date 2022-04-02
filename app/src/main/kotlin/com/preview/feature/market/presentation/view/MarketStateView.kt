@@ -22,7 +22,7 @@ class MarketStateView @JvmOverloads constructor(
     private val binding: Binding = Binding.inflate(LayoutInflater.from(context), this)
 
     init {
-        background = ColorDrawable(getColor(R.color.bg_blue_200))
+        background = ColorDrawable(getColor(R.color.bg_blue_300))
     }
 
     @ModelProp

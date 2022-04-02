@@ -48,6 +48,9 @@ class MarketViewModel @Inject constructor(
     }
 
     //region MarketEpoxyControllerCallbacks
+    override fun metalClicked(metal: String) {
+        event.value = DebugMessageEvent(metal)
+    }
     //endregion
 
     fun refreshRequested() {
@@ -87,7 +90,7 @@ class MarketViewModel @Inject constructor(
 
     private fun observePreciousMetals() {
         preciousMetals.getLive()
-            .map { it.convertToUiState(resourceReader) }
+            .map { it.convertToUiState() }
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {

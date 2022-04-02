@@ -9,5 +9,9 @@
     <string name="markets_item_market_state_update">Auto-update</string>
     <string name="markets_item_market_state_open">The Spot Market is Open</string>
     <string name="markets_item_market_state_close">The Spot Market is Closed</string>
-    <string name="markets_item_precious_title">Precious</string>
+    <string name="markets_item_precious_title">- - - Precious metals - - -</string>
+    <string name="markets_item_header_updated">Updated at</string>
+    <string name="markets_item_header_bid">Bid</string>
+    <string name="markets_item_header_ask">Ask</string>
+    <string name="markets_item_header_change">% Change</string>
 </resources>

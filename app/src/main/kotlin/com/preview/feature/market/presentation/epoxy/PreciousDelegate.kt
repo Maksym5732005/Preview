@@ -1,13 +1,13 @@
 package com.preview.feature.market.presentation.epoxy
 
+import com.preview.R
 import com.preview.base.LcenState
 import com.preview.base.extensions.isLoading
 import com.preview.base.uicomponent.dividerView
-import com.preview.feature.market.presentation.model.MarketItemDataUiState
-import com.preview.feature.market.presentation.model.MarketItemDataUiState.DataUiState
-import com.preview.feature.market.presentation.model.MarketItemDataUiState.TitleUiState
+import com.preview.feature.market.presentation.model.MetalUiState
 import com.preview.feature.market.presentation.model.PreciousUiState
 import com.preview.feature.market.presentation.view.marketItemDataLoadingView
+import com.preview.feature.market.presentation.view.marketItemDataTitleView
 import com.preview.feature.market.presentation.view.marketItemDataView
 
 private const val LOADING_VIEWS_COUNT = 5
@@ -18,6 +18,10 @@ internal interface PreciousDelegate {
 
 internal class PreciousDelegateImpl : PreciousDelegate {
     override fun MarketEpoxyController.buildPreciousMetalModels(marketState: PreciousUiState) {
+        marketItemDataTitleView {
+            id("precious_title")
+            title(R.string.markets_item_precious_title)
+        }
         if (marketState.lcenState.isLoading()) {
             buildLoading()
         } else {
@@ -29,18 +33,14 @@ internal class PreciousDelegateImpl : PreciousDelegate {
         }
     }
 
-    private fun MarketEpoxyController.buildContent(items: List<MarketItemDataUiState>) {
+    private fun MarketEpoxyController.buildContent(items: List<MetalUiState>) {
         items.forEachIndexed { i, uiState ->
-            when(uiState) {
-                is TitleUiState -> Unit
-                is DataUiState -> {
-                    marketItemDataView {
-                        id("data_$i")
-                        bind(uiState)
-                    }
-                    dividerView { id("divider_$i") }
-                }
+            marketItemDataView {
+                id("data_$i")
+                bind(uiState)
+                clickListener { this@buildContent.callbacks.metalClicked(it) }
             }
+            dividerView { id("divider_$i") }
         }
     }
 

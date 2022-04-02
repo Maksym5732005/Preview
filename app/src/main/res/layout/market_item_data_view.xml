@@ -7,6 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
+    tools:context="com.preview.feature.market.presentation.view.MarketItemDataView"
     tools:parentTag="android.widget.LinearLayout">
 
     <LinearLayout

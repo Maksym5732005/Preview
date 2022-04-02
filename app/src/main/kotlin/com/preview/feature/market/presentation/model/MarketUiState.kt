@@ -16,5 +16,5 @@ data class MarketInfoUiState(
 
 data class PreciousUiState(
     val lcenState: LcenState<Unit>,
-    val preciousItems: LcenState<List<MarketItemDataUiState>>,
+    val preciousItems: LcenState<List<MetalUiState>>,
 )

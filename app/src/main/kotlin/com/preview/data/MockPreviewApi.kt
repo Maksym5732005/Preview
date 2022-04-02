@@ -10,6 +10,7 @@ import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import kotlin.random.Random
+import kotlin.random.nextLong
 
 class MockPreviewApi @Inject constructor() : PreviewApi {
 
@@ -20,13 +21,13 @@ class MockPreviewApi @Inject constructor() : PreviewApi {
 
     override fun getMarketState(): Single<MarketStateNetworkEntity> {
         return Single.just(Gson().fromJson(marketStatus, MarketStateNetworkEntity::class.java))
-            .delay(Random.nextLong(5), TimeUnit.SECONDS)
+            .delay(Random.nextLong(3), TimeUnit.SECONDS)
     }
 
     override fun getPreciousMetals(): Single<List<PreciousMetalsNetworkEntity>> {
         val type = object : TypeToken<Collection<PreciousMetalsNetworkEntity>>() {}.type
         return Single.just<List<PreciousMetalsNetworkEntity>?>(Gson().fromJson(preciousMetals, type))
-            .delay(Random.nextLong(5), TimeUnit.SECONDS)
+            .delay(Random.nextLong(1..5L), TimeUnit.SECONDS)
     }
 }
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.preview.feature.market.presentation.view.MarketItemDataTitleView"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_blue_200"
+        android:paddingVertical="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="@color/bg_blue_500"
+            android:textSize="14sp"
+            tools:text="@string/markets_item_precious_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_blue_100"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/text_title_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1.8"
+            android:text="@string/markets_item_header_updated"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="@color/bg_blue_500"
+            android:textSize="14sp"
+            tools:text="Updated at" />
+
+        <TextView
+            android:id="@+id/text_title_bid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="@string/markets_item_header_bid"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="@color/bg_blue_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/text_title_ask"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="@string/markets_item_header_ask"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="@color/bg_blue_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/text_title_change"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1.2"
+            android:gravity="end"
+            android:text="@string/markets_item_header_change"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="@color/bg_blue_500"
+            android:textSize="14sp" />
+    </LinearLayout>
+</merge>

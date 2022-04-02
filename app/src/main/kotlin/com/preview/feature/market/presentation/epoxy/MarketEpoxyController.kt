@@ -16,5 +16,5 @@ internal class MarketEpoxyController(
 }
 
 interface MarketEpoxyControllerCallbacks {
-
+    fun metalClicked(metal: String)
 }
