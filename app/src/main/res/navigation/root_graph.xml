@@ -14,6 +14,10 @@
         <action
             android:id="@+id/push_to_markets"
             app:destination="@id/markets" />
+
+        <action
+            android:id="@+id/push_to_permission"
+            app:destination="@id/permission" />
     </fragment>
 
     <fragment
@@ -21,4 +25,10 @@
         android:name="com.preview.feature.market.presentation.MarketFragment"
         android:label="fragment_markets"
         tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/permission"
+        android:name="com.preview.feature.permission.presentation.PermissionFragment"
+        android:label="fragment_permission"
+        tools:layout="@layout/fragment_permission" />
 </navigation>

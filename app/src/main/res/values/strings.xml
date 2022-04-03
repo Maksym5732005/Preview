@@ -18,4 +18,9 @@
     <string name="markets_item_header_change">Change</string>
     <string name="markets_item_header_change_percent">% Change</string>
     <string name="markets_item_header_price">Price</string>
+
+    <!-- Permission screen -->
+    <string name="permission_dialog_camera_permission_rationale">Accept camera permission to unblock all features!</string>
+    <string name="permission_description_granted">Permission is granted, you can use all features!</string>
+    <string name="permission_description_not_granted">Permission is not granted, some features disabled.</string>
 </resources>

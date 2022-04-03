@@ -34,7 +34,7 @@ class WelcomeViewModel @Inject constructor(
     fun itemRequested(item: WelcomeItemUiState) {
         event.value = when(item.title) {
             WelcomeTitles.Market.name -> NavigationEvent.NavigationDirection(WelcomeFragmentDirections.pushToMarkets())
-            WelcomeTitles.Permission.name -> DebugMessageEvent("Not yet implemented")
+            WelcomeTitles.Permission.name -> NavigationEvent.NavigationDirection(WelcomeFragmentDirections.pushToPermission())
             else -> DebugMessageEvent("Invalid direction ${item.title}")
         }
     }
