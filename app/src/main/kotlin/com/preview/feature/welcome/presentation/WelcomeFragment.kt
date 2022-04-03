@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.preview.base.BaseFragment
 import com.preview.base.extensions.observe
+import com.preview.base.presentation.BaseFragment
 import com.preview.databinding.FragmentWelcomeBinding as Binding
 
 class WelcomeFragment : BaseFragment<Binding, WelcomeViewModel>() {

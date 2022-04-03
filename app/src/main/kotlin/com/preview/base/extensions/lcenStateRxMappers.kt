@@ -2,7 +2,7 @@
 
 package com.preview.base.extensions
 
-import com.preview.base.LcenState
+import com.preview.base.domain.LcenState
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable

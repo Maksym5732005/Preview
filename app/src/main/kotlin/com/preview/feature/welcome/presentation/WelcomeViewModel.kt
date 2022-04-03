@@ -1,16 +1,16 @@
 package com.preview.feature.welcome.presentation
 
 import androidx.lifecycle.MutableLiveData
-import com.preview.base.BaseViewModel
-import com.preview.base.DebugMessageEvent
-import com.preview.base.LcenState
-import com.preview.base.NavigationEvent
-import com.preview.base.ThreadScheduler
+import com.preview.base.domain.LcenState
+import com.preview.base.domain.ThreadScheduler
+import com.preview.base.domain.scheduleIoToUi
 import com.preview.base.extensions.delegate
 import com.preview.base.extensions.mapDistinct
-import com.preview.base.scheduleIoToUi
 import com.preview.base.extensions.subscribeWithErrorLog
 import com.preview.base.extensions.toLcenEventObservable
+import com.preview.base.presentation.BaseViewModel
+import com.preview.base.presentation.DebugMessageEvent
+import com.preview.base.presentation.NavigationEvent
 import com.preview.feature.welcome.domain.GetWelcomeItemsInteractor
 import com.preview.feature.welcome.domain.model.WelcomeTitles
 import com.preview.feature.welcome.presentation.model.WelcomeItemUiState

@@ -1,4 +1,4 @@
-package com.preview.base
+package com.preview.base.presentation
 
 import android.graphics.drawable.Drawable
 import androidx.annotation.ArrayRes

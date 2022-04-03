@@ -1,6 +1,6 @@
 package com.preview.feature.market.presentation.epoxy
 
-import com.preview.base.LcenState
+import com.preview.base.domain.LcenState
 import com.preview.base.extensions.isLoading
 import com.preview.feature.market.presentation.view.marketStateLoadingView
 import com.preview.feature.market.presentation.view.marketStateView

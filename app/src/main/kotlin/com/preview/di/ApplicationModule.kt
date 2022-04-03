@@ -2,12 +2,12 @@ package com.preview.di
 
 import android.content.Context
 import com.preview.App
-import com.preview.PreviewApi
-import com.preview.base.AndroidResourceReader
-import com.preview.base.ResourceReader
-import com.preview.base.ThreadScheduler
-import com.preview.base.ThreadSchedulerImpl
-import com.preview.data.MockPreviewApi
+import com.preview.base.data.MockPreviewApi
+import com.preview.base.domain.PreviewApi
+import com.preview.base.domain.ThreadScheduler
+import com.preview.base.domain.ThreadSchedulerImpl
+import com.preview.base.presentation.AndroidResourceReader
+import com.preview.base.presentation.ResourceReader
 import dagger.Module
 import dagger.Provides
 

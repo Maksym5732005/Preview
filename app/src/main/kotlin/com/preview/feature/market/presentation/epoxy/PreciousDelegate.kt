@@ -1,9 +1,9 @@
 package com.preview.feature.market.presentation.epoxy
 
 import com.preview.R
-import com.preview.base.LcenState
+import com.preview.base.domain.LcenState
 import com.preview.base.extensions.isLoading
-import com.preview.base.uicomponent.dividerView
+import com.preview.base.presentation.views.dividerView
 import com.preview.feature.market.presentation.model.MetalUiState
 import com.preview.feature.market.presentation.model.PreciousUiState
 import com.preview.feature.market.presentation.view.TitleModel

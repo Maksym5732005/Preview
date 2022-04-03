@@ -7,9 +7,9 @@ import android.widget.LinearLayout
 import androidx.core.view.updatePadding
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.OnViewRecycled
-import com.preview.base.uicomponent.dpToPx
-import com.preview.base.uicomponent.startSkeletonAnimation
-import com.preview.base.uicomponent.stopSkeletonAnimation
+import com.preview.base.presentation.views.dpToPx
+import com.preview.base.presentation.views.startSkeletonAnimation
+import com.preview.base.presentation.views.stopSkeletonAnimation
 import com.preview.databinding.MarketItemDataLoadingViewBinding as Binding
 
 private const val VERTICAL_PADDING_DP = 8

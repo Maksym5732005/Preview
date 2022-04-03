@@ -1,4 +1,4 @@
-package com.preview
+package com.preview.base.domain
 
 import com.preview.feature.market.data.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.IndicesNetworkEntity

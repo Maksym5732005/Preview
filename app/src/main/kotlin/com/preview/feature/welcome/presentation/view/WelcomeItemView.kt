@@ -8,7 +8,7 @@ import androidx.core.view.updatePadding
 import com.airbnb.epoxy.CallbackProp
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
-import com.preview.base.uicomponent.dpToPx
+import com.preview.base.presentation.views.dpToPx
 import com.preview.feature.welcome.presentation.model.WelcomeItemUiState
 import com.preview.databinding.WelcomeItemViewBinding as Binding
 

@@ -10,7 +10,7 @@ import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.preview.base.extensions.getColor
 import com.preview.base.extensions.resolveAttribute
-import com.preview.base.uicomponent.dpToPx
+import com.preview.base.presentation.views.dpToPx
 import com.preview.feature.market.presentation.model.MetalUiState
 import com.preview.databinding.MarketItemDataViewBinding as Binding
 

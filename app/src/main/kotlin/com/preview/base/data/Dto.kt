@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.preview.base
+package com.preview.base.data
 
 interface Dto<out T> {
     fun convert(): T

@@ -1,7 +1,6 @@
 package com.preview.feature.market.domain
 
 import com.preview.feature.market.domain.model.MarketItemIndex
-import com.preview.feature.market.domain.model.MarketItemMetal
 import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject

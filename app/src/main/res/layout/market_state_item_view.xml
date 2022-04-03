@@ -8,7 +8,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     tools:background="@color/bg_blue_300"
-    tools:context="com.preview.feature.market.presentation.MarketStateView"
+    tools:context="com.preview.feature.market.presentation.view.MarketStateView"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView

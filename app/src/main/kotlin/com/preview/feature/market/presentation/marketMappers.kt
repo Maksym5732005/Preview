@@ -1,9 +1,9 @@
 package com.preview.feature.market.presentation
 
 import com.preview.R
-import com.preview.base.LcenState
-import com.preview.base.ResourceReader
+import com.preview.base.domain.LcenState
 import com.preview.base.extensions.mapContent
+import com.preview.base.presentation.ResourceReader
 import com.preview.feature.market.domain.model.MarketInfo
 import com.preview.feature.market.domain.model.MarketItemIndex
 import com.preview.feature.market.domain.model.MarketItemMetal

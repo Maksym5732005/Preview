@@ -1,6 +1,6 @@
 package com.preview.feature.market.presentation.model
 
-import com.preview.base.LcenState
+import com.preview.base.domain.LcenState
 
 data class MarketUiState(
     val marketStateItem: MarketInfoUiState,

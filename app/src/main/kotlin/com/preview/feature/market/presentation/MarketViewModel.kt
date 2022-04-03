@@ -2,17 +2,17 @@ package com.preview.feature.market.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
-import com.preview.base.BaseViewModel
-import com.preview.base.DebugMessageEvent
-import com.preview.base.LcenState
-import com.preview.base.ResourceReader
-import com.preview.base.ThreadScheduler
+import com.preview.base.domain.LcenState
+import com.preview.base.domain.ThreadScheduler
+import com.preview.base.domain.scheduleIoToUi
 import com.preview.base.extensions.delegate
 import com.preview.base.extensions.isLoading
 import com.preview.base.extensions.mapDistinct
 import com.preview.base.extensions.subscribeWithErrorLog
 import com.preview.base.extensions.toLcenEventObservable
-import com.preview.base.scheduleIoToUi
+import com.preview.base.presentation.BaseViewModel
+import com.preview.base.presentation.DebugMessageEvent
+import com.preview.base.presentation.ResourceReader
 import com.preview.feature.market.domain.BaseMetalsInteractor
 import com.preview.feature.market.domain.IndicesInteractor
 import com.preview.feature.market.domain.MarketStateInteractor

@@ -1,6 +1,6 @@
 package com.preview.feature.welcome.data
 
-import com.preview.base.Dto
+import com.preview.base.data.Dto
 import com.preview.feature.welcome.domain.model.WelcomeItemModel
 import com.preview.feature.welcome.domain.model.WelcomeTitles
 

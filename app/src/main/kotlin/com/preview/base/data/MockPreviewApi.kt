@@ -1,8 +1,8 @@
-package com.preview.data
+package com.preview.base.data
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.preview.PreviewApi
+import com.preview.base.domain.PreviewApi
 import com.preview.feature.market.data.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.IndicesNetworkEntity
 import com.preview.feature.market.data.MarketStateNetworkEntity

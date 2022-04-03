@@ -1,6 +1,6 @@
 @file:SuppressWarnings("ForbiddenImport")
 
-package com.preview.base
+package com.preview.base.presentation
 
 import android.content.Context
 import android.graphics.drawable.Drawable

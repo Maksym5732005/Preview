@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.preview.R
-import com.preview.base.BaseFragment
-import com.preview.base.Event
 import com.preview.base.extensions.observe
+import com.preview.base.presentation.BaseFragment
+import com.preview.base.presentation.Event
 import com.preview.databinding.FragmentPermissionBinding as Binding
 
 class PermissionFragment : BaseFragment<Binding, PermissionViewModel>(),

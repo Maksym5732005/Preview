@@ -7,6 +7,8 @@
     android:background="?attr/selectableItemBackground"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
+    tools:context="com.preview.feature.market.presentation.view.MarketItemDataLoadingView"
+    tools:ignore="HardcodedText"
     tools:parentTag="android.widget.LinearLayout">
 
     <LinearLayout

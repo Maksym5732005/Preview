@@ -1,4 +1,4 @@
-package com.preview.base
+package com.preview.base.presentation
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

@@ -1,7 +1,7 @@
 package com.preview.feature.market
 
-import com.preview.base.AppMemory
-import com.preview.base.reactiveCache
+import com.preview.base.data.AppMemory
+import com.preview.base.data.reactiveCache
 import com.preview.feature.market.domain.model.MarketInfo
 import com.preview.feature.market.domain.model.MarketItemIndex
 import com.preview.feature.market.domain.model.MarketItemMetal

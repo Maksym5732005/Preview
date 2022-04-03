@@ -1,6 +1,6 @@
 package com.preview.feature.market
 
-import com.preview.PreviewApi
+import com.preview.base.domain.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
 import com.preview.feature.market.data.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.IndicesNetworkEntity

@@ -1,4 +1,4 @@
-package com.preview.base
+package com.preview.base.presentation
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

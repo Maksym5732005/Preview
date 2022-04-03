@@ -3,8 +3,8 @@ package com.preview.feature.market.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.preview.base.BaseFragment
 import com.preview.base.extensions.observe
+import com.preview.base.presentation.BaseFragment
 import com.preview.feature.market.presentation.epoxy.MarketEpoxyController
 import com.preview.databinding.FragmentMarketBinding as Binding
 

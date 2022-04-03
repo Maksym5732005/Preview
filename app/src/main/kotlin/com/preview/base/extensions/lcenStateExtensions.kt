@@ -2,7 +2,7 @@
 
 package com.preview.base.extensions
 
-import com.preview.base.LcenState
+import com.preview.base.domain.LcenState
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 

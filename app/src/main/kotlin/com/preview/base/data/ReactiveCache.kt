@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.preview.base
+package com.preview.base.data
 
 import com.preview.base.extensions.getOrPutProperty
 import io.reactivex.Observable

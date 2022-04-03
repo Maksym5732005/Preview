@@ -2,9 +2,9 @@ package com.preview.feature.permission.presentation
 
 import android.Manifest
 import androidx.lifecycle.MutableLiveData
-import com.preview.base.BaseViewModel
 import com.preview.base.extensions.delegate
 import com.preview.base.extensions.mapDistinct
+import com.preview.base.presentation.BaseViewModel
 import java.util.LinkedList
 import java.util.Queue
 import javax.inject.Inject

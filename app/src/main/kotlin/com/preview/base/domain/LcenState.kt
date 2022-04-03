@@ -1,4 +1,4 @@
-package com.preview.base
+package com.preview.base.domain
 
 sealed class LcenState<out T : Any> {
     object None : LcenState<Nothing>()

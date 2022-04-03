@@ -9,8 +9,8 @@ import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.OnViewRecycled
 import com.preview.R
 import com.preview.base.extensions.getColor
-import com.preview.base.uicomponent.startSkeletonAnimation
-import com.preview.base.uicomponent.stopSkeletonAnimation
+import com.preview.base.presentation.views.startSkeletonAnimation
+import com.preview.base.presentation.views.stopSkeletonAnimation
 import com.preview.databinding.MarketStateItemLoadingViewBinding as Binding
 
 @ModelView(autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT)

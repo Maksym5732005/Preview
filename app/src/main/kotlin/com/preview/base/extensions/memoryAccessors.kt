@@ -2,7 +2,7 @@
 
 package com.preview.base.extensions
 
-import com.preview.base.HashMapMemory
+import com.preview.base.data.HashMapMemory
 import java.util.EnumMap
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.properties.ReadWriteProperty
