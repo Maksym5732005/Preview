@@ -1,9 +1,9 @@
 package com.preview.base.domain
 
-import com.preview.feature.market.data.BaseMetalsNetworkEntity
-import com.preview.feature.market.data.IndicesNetworkEntity
-import com.preview.feature.market.data.MarketStateNetworkEntity
-import com.preview.feature.market.data.PreciousMetalsNetworkEntity
+import com.preview.feature.market.data.entity.BaseMetalsNetworkEntity
+import com.preview.feature.market.data.entity.IndicesNetworkEntity
+import com.preview.feature.market.data.entity.MarketStateNetworkEntity
+import com.preview.feature.market.data.entity.PreciousMetalsNetworkEntity
 import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
 import io.reactivex.Single
 

@@ -1,10 +1,10 @@
-package com.preview.feature.market
+package com.preview.feature.market.data
 
 import com.preview.base.domain.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
-import com.preview.feature.market.data.BaseMetalsNetworkEntity
-import com.preview.feature.market.data.IndicesNetworkEntity
-import com.preview.feature.market.data.PreciousMetalsNetworkEntity
+import com.preview.feature.market.data.entity.BaseMetalsNetworkEntity
+import com.preview.feature.market.data.entity.IndicesNetworkEntity
+import com.preview.feature.market.data.entity.PreciousMetalsNetworkEntity
 import com.preview.feature.market.domain.MarketRepository
 import com.preview.feature.market.domain.model.MarketInfo
 import com.preview.feature.market.domain.model.MarketItemIndex

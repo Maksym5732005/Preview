@@ -13,10 +13,10 @@ import com.preview.base.extensions.toLcenEventObservable
 import com.preview.base.presentation.BaseViewModel
 import com.preview.base.presentation.DebugMessageEvent
 import com.preview.base.presentation.ResourceReader
-import com.preview.feature.market.domain.BaseMetalsInteractor
-import com.preview.feature.market.domain.IndicesInteractor
-import com.preview.feature.market.domain.MarketStateInteractor
-import com.preview.feature.market.domain.PreciousMetalsInteractor
+import com.preview.feature.market.domain.interactor.IndicesInteractor
+import com.preview.feature.market.domain.interactor.BaseMetalsInteractor
+import com.preview.feature.market.domain.interactor.MarketStateInteractor
+import com.preview.feature.market.domain.interactor.PreciousMetalsInteractor
 import com.preview.feature.market.domain.model.MarketItemIndex
 import com.preview.feature.market.domain.model.MarketItemMetal
 import com.preview.feature.market.presentation.epoxy.MarketEpoxyControllerCallbacks

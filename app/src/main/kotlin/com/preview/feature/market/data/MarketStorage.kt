@@ -1,4 +1,4 @@
-package com.preview.feature.market
+package com.preview.feature.market.data
 
 import com.preview.base.data.AppMemory
 import com.preview.base.data.reactiveCache

@@ -1,4 +1,4 @@
-package com.preview.feature.market.data
+package com.preview.feature.market.data.entity
 
 import com.preview.base.data.Dto
 import com.preview.feature.market.domain.model.MarketItemMetal
