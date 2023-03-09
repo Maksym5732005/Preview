@@ -1,6 +1,5 @@
 package com.preview.feature.market.data
 
-import com.preview.base.domain.PreviewApi
 import com.preview.base.extensions.flatMapCompletableAction
 import com.preview.feature.market.data.entity.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.entity.IndicesNetworkEntity
@@ -14,7 +13,7 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 class MarketRepositoryImpl @Inject constructor(
-    private val api: PreviewApi,
+    private val api: MarketApi,
     private val memory: MarketStorage,
 ) : MarketRepository {
 

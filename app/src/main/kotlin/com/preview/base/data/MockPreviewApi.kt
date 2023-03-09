@@ -7,7 +7,7 @@ import com.preview.feature.market.data.entity.BaseMetalsNetworkEntity
 import com.preview.feature.market.data.entity.IndicesNetworkEntity
 import com.preview.feature.market.data.entity.MarketStateNetworkEntity
 import com.preview.feature.market.data.entity.PreciousMetalsNetworkEntity
-import com.preview.feature.welcome.data.WelcomeItemNetworkEntity
+import com.preview.feature.welcome.data.entity.WelcomeItemNetworkEntity
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

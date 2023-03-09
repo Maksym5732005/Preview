@@ -8,7 +8,7 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class WelcomeRepositoryImpl @Inject constructor(
-    private val api: PreviewApi,
+    private val api: WelcomeApi,
 ) : WelcomeRepository {
 
     override fun getItems(): Single<List<WelcomeItemModel>> {

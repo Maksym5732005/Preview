@@ -1,4 +1,4 @@
-package com.preview.feature.welcome.data
+package com.preview.feature.welcome.data.entity
 
 import com.preview.base.data.Dto
 import com.preview.feature.welcome.domain.model.WelcomeItemModel
