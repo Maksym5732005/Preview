@@ -21,12 +21,12 @@ internal class AndroidResourceReader @Inject constructor(
     }
 
     override fun getString(resId: Int, vararg args: Any): String {
-        @Suppress("SpreadOperator") // Не влияет на производительность, нужен для передачи параметров
+        @Suppress("SpreadOperator") // Does not affect performance, needed for parameter passing
         return resources.getString(resId, *args)
     }
 
     override fun getQuantityString(pluralResId: Int, quantity: Int, vararg formatArgs: Any): String {
-        @Suppress("SpreadOperator") // Не влияет на производительность, нужен для передачи параметров
+        @Suppress("SpreadOperator") // Does not affect performance, needed for parameter passing
         return resources.getQuantityString(pluralResId, quantity, *formatArgs)
     }
 

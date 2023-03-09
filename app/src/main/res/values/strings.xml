@@ -16,7 +16,7 @@
     <string name="markets_item_header_bid">Bid</string>
     <string name="markets_item_header_ask">Ask</string>
     <string name="markets_item_header_change">Change</string>
-    <string name="markets_item_header_change_percent">% Change</string>
+    <string name="markets_item_header_change_percent" formatted="false">% Change</string>
     <string name="markets_item_header_price">Price</string>
 
     <!-- Permission screen -->
