@@ -92,7 +92,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(marketStateItem = state.marketStateItem.copy(lcenState = it))
+                state = state.updateMarketInfoLcenState(newState = it)
             }
             .autoDispose()
     }
@@ -106,7 +106,7 @@ class MarketViewModel @Inject constructor(
             .map { it.convertToUiState(resourceReader) }
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(marketStateItem = state.marketStateItem.copy(marketItem = it))
+                state = state.updateMarketInfoContent(it)
             }.autoDispose()
     }
 
@@ -119,7 +119,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(preciousState = state.preciousState.copy(lcenState = it))
+                state = state.updatePreciousMetalsLcenState(it)
             }
             .autoDispose()
     }
@@ -133,7 +133,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(preciousState = state.preciousState.copy(preciousItems = it))
+                state = state.updatePreciousMetalsContent(it)
             }.autoDispose()
     }
 
@@ -146,7 +146,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(baseMetalsState = state.baseMetalsState.copy(lcenState = it))
+                state = state.updateBaseMetalsLcenState(it)
             }
             .autoDispose()
     }
@@ -160,7 +160,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(baseMetalsState = state.baseMetalsState.copy(preciousItems = it))
+                state = state.updateBaseMetalsContent(it)
             }.autoDispose()
     }
 
@@ -173,7 +173,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(indicesState = state.indicesState.copy(lcenState = it))
+                state = state.updateIndicesLcenState(it)
             }
             .autoDispose()
     }
@@ -187,7 +187,7 @@ class MarketViewModel @Inject constructor(
             .toLcenEventObservable()
             .scheduleIoToUi(scheduler)
             .subscribeWithErrorLog {
-                state = state.copy(indicesState = state.indicesState.copy(indicesItems = it))
+                state = state.updateIndicesContent(it)
             }.autoDispose()
     }
 
