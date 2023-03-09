@@ -40,11 +40,12 @@ class MarketViewModel @Inject constructor(
     private var state by _viewState.delegate()
 
     val viewState = _viewState.distinctUntilChanged()
-    val loadingState = _viewState.mapDistinct { s ->
-        s.marketStateItem.lcenState.isLoading()
-                || s.preciousState.lcenState.isLoading()
-                || s.baseMetalsState.lcenState.isLoading()
-                || s.indicesState.lcenState.isLoading()
+    // We have single loading state for screen. So we show loading as long as at least one of the elements is loading.
+    val loadingState = _viewState.mapDistinct { marketState ->
+        marketState.marketStateItem.lcenState.isLoading()
+                || marketState.preciousState.lcenState.isLoading()
+                || marketState.baseMetalsState.lcenState.isLoading()
+                || marketState.indicesState.lcenState.isLoading()
     }
 
     init {
@@ -78,6 +79,14 @@ class MarketViewModel @Inject constructor(
         fetchIndices(true)
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // PRIVATE
+    ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Requesting update for Market state.
+     * @param skipCache use `False` to get data from a local cache if available. `True` to request fresh data from remote.
+     */
     private fun fetchMarketState(skipCache: Boolean) {
         marketState.fetch(skipCache)
             .toLcenEventObservable()
@@ -88,6 +97,9 @@ class MarketViewModel @Inject constructor(
             .autoDispose()
     }
 
+    /**
+     * Subscribe for Market state changes.
+     */
     private fun observeMarketState() {
         marketState.getLive()
             .toLcenEventObservable()
@@ -98,6 +110,10 @@ class MarketViewModel @Inject constructor(
             }.autoDispose()
     }
 
+    /**
+     * Request update for Precious metals.
+     * @param skipCache use `False` to get data from a local cache if available. `True` to request fresh data from remote.
+     */
     private fun fetchPreciousMetals(skipCache: Boolean) {
         preciousMetals.fetch(skipCache)
             .toLcenEventObservable()
@@ -108,6 +124,9 @@ class MarketViewModel @Inject constructor(
             .autoDispose()
     }
 
+    /**
+     * Subscribe for Precious metals changes.
+     */
     private fun observePreciousMetals() {
         preciousMetals.getLive()
             .map { it.map(MarketItemMetal::convertToUiState) }
@@ -118,6 +137,10 @@ class MarketViewModel @Inject constructor(
             }.autoDispose()
     }
 
+    /**
+     * Request update for Base metals.
+     * @param skipCache use `False` to get data from a local cache if available. `True` to request fresh data from remote.
+     */
     private fun fetchBaseMetals(skipCache: Boolean) {
         baseMetals.fetch(skipCache)
             .toLcenEventObservable()
@@ -128,6 +151,9 @@ class MarketViewModel @Inject constructor(
             .autoDispose()
     }
 
+    /**
+     * Subscribe for Base metals changes.
+     */
     private fun observeBaseMetals() {
         baseMetals.getLive()
             .map { it.map(MarketItemMetal::convertToUiState) }
@@ -138,6 +164,10 @@ class MarketViewModel @Inject constructor(
             }.autoDispose()
     }
 
+    /**
+     * Request update for Indices.
+     * @param skipCache use `False` to get data from a local cache if available. `True` to request fresh data from remote.
+     */
     private fun fetchIndices(skipCache: Boolean) {
         indices.fetch(skipCache)
             .toLcenEventObservable()
@@ -148,6 +178,9 @@ class MarketViewModel @Inject constructor(
             .autoDispose()
     }
 
+    /**
+     * Subscribe for Indices changes.
+     */
     private fun observeIndices() {
         indices.getLive()
             .map { it.map(MarketItemIndex::convertToUiState) }
